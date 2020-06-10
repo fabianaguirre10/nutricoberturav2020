@@ -1287,7 +1287,7 @@ public class FormController {
         listaprodev.clear();
         /*Recorrer grupo devoluciones*/
         for (TreeElement d: grupoproductosdevoluciones
-             ) {
+        ) {
             BranchDevoluciones branchProductoDevoluciones= new BranchDevoluciones();
             branchProductoDevoluciones.setCodlocal(obj.getE_code());
             /*Tomar valor sku seleccionado para devolucion*/
@@ -1333,40 +1333,107 @@ public class FormController {
         }
 
         principal principalo= new principal();
-
         if(activos.getListapro().size()==0){
-            if(principalo.getListapro().size()>0)
+            activos.setListapro(mapa.getListapro());
+            if(activos.getListapro().size()==0){
                 activos.setListapro(principalo.getListapro());
-        }
-
-        if(q_compra!=null){
-           q_compra.clearCaches();
-            for (BranchProducto bp:activos.getListapro()) {
-                List<TreeElement> sku = q_compra.getChildrenWithName(bp.getE_cantSku());
-                if (sku.size() == 1) {
-                    IntegerData sa = (IntegerData) sku.get(0).getValue();
-                    if (sa != null) {
-                        bp.setE_valor(sa.getValue().toString());
-                    }
-                }
-
-            }
-            for (BranchProducto bp:mapa.getListapro()) {
-                List<TreeElement> sku = q_compra.getChildrenWithName(bp.getE_cantSku());
-                if (sku.size() == 1) {
-                    IntegerData sa = (IntegerData) sku.get(0).getValue();
-                    if (sa != null) {
-                        bp.setE_valor(sa.getValue().toString());
-
-
-                    }
-                }
-
             }
         }
+
         if(q_compra!=null){
             q_compra.clearCaches();
             for (BranchProducto bp:activos.getListapro()) {
+                List<TreeElement> sku = q_compra.getChildrenWithName(bp.getE_cantSku());
+                if (sku.size() == 1) {
+                    IntegerData sa = (IntegerData) sku.get(0).getValue();
+                    if (sa != null) {
+                        bp.setE_valor(sa.getValue().toString());
+                    }
+                }
+
+            }
+            /*for (BranchProducto bp:mapa.getListapro()) {
+                List<TreeElement> sku = q_compra.getChildrenWithName(bp.getE_cantSku());
+                if (sku.size() == 1) {
+                    IntegerData sa = (IntegerData) sku.get(0).getValue();
+                    if (sa != null) {
+                        bp.setE_valor(sa.getValue().toString());
+
+
+                    }
+                }
+
+            }
+            for (BranchProducto bp:principalo.getListapro()) {
+                List<TreeElement> sku = q_compra.getChildrenWithName(bp.getE_cantSku());
+                if (sku.size() == 1) {
+                    IntegerData sa = (IntegerData) sku.get(0).getValue();
+                    if (sa != null) {
+                        bp.setE_valor(sa.getValue().toString());
+
+
+                    }
+                }
+
+            }*/
+        }
+        if(q_compra!=null) {
+            q_compra.clearCaches();
+            for (BranchProducto bp : activos.getListapro()) {
+                List<TreeElement> sku_stock = q_compra.getChildrenWithName("stock_" + bp.getE_codproducto());
+
+                if (sku_stock.size() == 1) {
+
+                    IntegerData sa = (IntegerData) sku_stock.get(0).getValue();
+                    if (sa != null) {
+                        IntegerData respuesta = new IntegerData();
+                        respuesta.setValue(Integer.valueOf((int) bp.getE_stock()));
+                        IAnswerData iAnswerData = (IAnswerData) respuesta;
+                        sku_stock.get(0).setValue(iAnswerData);
+                        if (bp.getE_stock() == 0) {
+                            q_compra.removeChildren("stock_" + bp.getE_codproducto());
+                        } else {
+                            sku_stock.get(0).clearChildrenCaches();
+                            sku_stock.get(0).clearCaches();
+                            if (q_compra.getChildrenWithName("stock_" + bp.getE_codproducto()) == null)
+                                q_compra.addChild(sku_stock.get(0));
+                        }
+
+
+                    }
+                }
+
+            }
+        }
+           /* q_compra.clearCaches();
+            for (BranchProducto bp:mapa.getListapro()) {
+                List<TreeElement> sku_stock = q_compra.getChildrenWithName("stock_"+bp.getE_codproducto());
+
+                if (sku_stock.size() == 1) {
+                    IntegerData sa = (IntegerData) sku_stock.get(0).getValue();
+                    if (sa != null) {
+                        IntegerData respuesta = new IntegerData();
+                        respuesta.setValue(Integer.valueOf((int) bp.getE_stock()));
+                        IAnswerData iAnswerData = (IAnswerData) respuesta;
+                        sku_stock.get(0).setValue(iAnswerData);
+                        if(bp.getE_stock()==0){
+                            q_compra.removeChildren("stock_"+bp.getE_codproducto());
+                        }else {
+                            sku_stock.get(0).clearChildrenCaches();
+                            sku_stock.get(0).clearCaches();
+                            if(q_compra.getChildrenWithName("stock_"+bp.getE_codproducto())==null)
+                                q_compra.addChild(sku_stock.get(0));
+                        }
+
+                    }
+                }
+
+            }
+        }*/
+
+      /*  if(q_compra!=null){
+            q_compra.clearCaches();
+      for (BranchProducto bp:principalo.getListapro()) {
                 List<TreeElement> sku_stock = q_compra.getChildrenWithName("stock_"+bp.getE_codproducto());
 
                 if (sku_stock.size() == 1) {
@@ -1391,7 +1458,7 @@ public class FormController {
                 }
 
             }
-            for (BranchProducto bp:mapa.getListapro()) {
+            for (BranchProducto bp:principalo.getListapro()) {
                 List<TreeElement> sku_stock = q_compra.getChildrenWithName("stock_"+bp.getE_codproducto());
 
                 if (sku_stock.size() == 1) {
@@ -1410,7 +1477,7 @@ public class FormController {
                 }
 
             }
-        }
+        }*/
 
 
         /*valida existe o nuevo*/

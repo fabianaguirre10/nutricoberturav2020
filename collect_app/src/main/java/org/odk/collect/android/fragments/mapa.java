@@ -25,6 +25,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.odk.collect.android.activities.Engine_util;
 import org.odk.collect.android.activities.FormChooserList;
+import org.odk.collect.android.activities.principal;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.BranchProducto;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.BranchSession;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.CodigoSession;
@@ -209,6 +210,10 @@ public class mapa extends SupportMapFragment implements GoogleMap.OnMarkerClickL
                         Cursor cursor = objutil.Listarproductos(args, opcion, where1);
                         int cod=0;
                         listapro.clear();
+                        principal principalo = new principal();
+                        Activos mapal= new Activos();
+                        mapal.getListapro().clear();
+                        principalo.getListapro().clear();
                         if (cursor.moveToFirst()) {
 
                             do {
@@ -226,32 +231,32 @@ public class mapa extends SupportMapFragment implements GoogleMap.OnMarkerClickL
                         }
 
 
-                                    mTelephonyManager = (TelephonyManager) getContext().getSystemService(getContext().TELEPHONY_SERVICE);
-                                    final android.app.AlertDialog.Builder builder;
-                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                        builder = new android.app.AlertDialog.Builder(getActivity(), android.R.style.Theme_Material_Dialog_Alert);
-                                    } else {
-                                        builder = new android.app.AlertDialog.Builder(getActivity());
-                                    }
-                                    builder.setTitle("Iniciar Tarea");
-                                    builder.setMessage("Local: "+objseleccionado.getString(5)+
-                                            '\n'+"Propietario: "+objBranchSeccion.getE_propietario()+ '\n'+"Dirección: "+objBranchSeccion.getE_mainStreet());
-                                    builder.setPositiveButton("Pedidos", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            startActivity(new Intent(getActivity().getApplication(), FormChooserList.class)
-                                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
-                                        }
-                                    });
-                                    builder.setNegativeButton("Información", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            //onMapReady(map);
+                        mTelephonyManager = (TelephonyManager) getContext().getSystemService(getContext().TELEPHONY_SERVICE);
+                        final android.app.AlertDialog.Builder builder;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            builder = new android.app.AlertDialog.Builder(getActivity(), android.R.style.Theme_Material_Dialog_Alert);
+                        } else {
+                            builder = new android.app.AlertDialog.Builder(getActivity());
+                        }
+                        builder.setTitle("Iniciar Tarea");
+                        builder.setMessage("Local: "+objseleccionado.getString(5)+
+                                '\n'+"Propietario: "+objBranchSeccion.getE_propietario()+ '\n'+"Dirección: "+objBranchSeccion.getE_mainStreet());
+                        builder.setPositiveButton("Pedidos", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(getActivity().getApplication(), FormChooserList.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                            }
+                        });
+                        builder.setNegativeButton("Información", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //onMapReady(map);
 
-                                            startActivity(new Intent(getActivity().getApplication(), informacionpuntoapp.class)
-                                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                                startActivity(new Intent(getActivity().getApplication(), informacionpuntoapp.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
 
-                                        }
-                                    }).setIcon(android.R.drawable.ic_dialog_alert);
-                                    builder.show();
+                            }
+                        }).setIcon(android.R.drawable.ic_dialog_alert);
+                        builder.show();
 
 
 

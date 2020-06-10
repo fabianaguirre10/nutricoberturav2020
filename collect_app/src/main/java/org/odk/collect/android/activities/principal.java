@@ -50,6 +50,8 @@ import org.odk.collect.android.database.BaseDatosEngine.Entidades.EstadoEditar;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.EstadoFormularioSession;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.FiltrosBusqueda;
 import org.odk.collect.android.database.BaseDatosEngine.EstructuraBD;
+import org.odk.collect.android.fragments.Activos;
+import org.odk.collect.android.fragments.mapa;
 import org.odk.collect.android.logic.Category;
 import org.odk.collect.android.preferences.AdminKeys;
 import org.odk.collect.android.preferences.AdminPreferencesActivity;
@@ -112,6 +114,34 @@ public class principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (objcuentaSession.getCu_ID() != "") {
+
+                    String where1="";
+                    String opcion = "";
+                    String[] args = new String[]{};
+                    objutil= new Engine_util();
+                    Cursor cursor = objutil.Listarproductos(args, opcion, where1);
+                    int cod=0;
+                    listapro.clear();
+                    mapa principalo = new mapa();
+                    Activos mapal= new Activos();
+                    mapal.getListapro().clear();
+                    principalo.getListapro().clear();
+                    if (cursor.moveToFirst()) {
+
+                        do {
+                            BranchProducto branchProducto= new BranchProducto();
+                            branchProducto.setE_code(objBranchSeccion.getE_code());
+                            branchProducto.setE_cantSku(cursor.getString(4));
+                            branchProducto.setE_valor("0");
+                            branchProducto.setE_productname(cursor.getString(2));
+                            branchProducto.setE_codproducto(cursor.getString(6));
+                            branchProducto.setE_stock(cursor.getDouble(5));
+                            branchProducto.set_id(cursor.getInt(0)); ;
+                            cod++;
+                            listapro.add( branchProducto);
+                        } while (cursor.moveToNext());
+                    }
+
                     final android.app.AlertDialog.Builder builder;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         builder = new android.app.AlertDialog.Builder(view.getContext(), android.R.style.Theme_Material_Dialog_Alert);
@@ -139,28 +169,7 @@ public class principal extends AppCompatActivity {
                                     String where = "codeunico='" + objBranchSeccion.getE_code() + "'";
                                     usdbh.ActualizarTablaCodigos(Objdatosnuevos, where);
                                 }
-                                String where1="";
-                                String opcion = "";
-                                String[] args = new String[]{};
-                                objutil= new Engine_util();
-                                Cursor cursor = objutil.Listarproductos(args, opcion, where1);
-                                int cod=0;
-                                listapro.clear();
-                                if (cursor.moveToFirst()) {
 
-                                    do {
-                                        BranchProducto branchProducto= new BranchProducto();
-                                        branchProducto.setE_code(objBranchSeccion.getE_code());
-                                        branchProducto.setE_cantSku(cursor.getString(4));
-                                        branchProducto.setE_valor("0");
-                                        branchProducto.setE_productname(cursor.getString(2));
-                                        branchProducto.setE_codproducto(cursor.getString(6));
-                                        branchProducto.setE_stock(cursor.getDouble(5));
-                                        branchProducto.set_id(cursor.getInt(0)); ;
-                                        cod++;
-                                        listapro.add( branchProducto);
-                                    } while (cursor.moveToNext());
-                                }
 
 
                                 Intent intent = new Intent(getApplication(), FormChooserList.class);
@@ -419,6 +428,8 @@ public class principal extends AppCompatActivity {
             }
         }
         usdbh.close();
+
+
     }
     @SuppressLint("MissingPermission")
     public String  obterImeid() {

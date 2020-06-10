@@ -338,12 +338,12 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
 
         compositeDisposable
                 .add(eventBus
-                .register(ReadPhoneStatePermissionRxEvent.class)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(event -> {
-                    readPhoneStatePermissionRequestNeeded = true;
-                }));
+                        .register(ReadPhoneStatePermissionRxEvent.class)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(event -> {
+                            readPhoneStatePermissionRequestNeeded = true;
+                        }));
 
         errorMessage = null;
 
@@ -607,14 +607,14 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
             createErrorDialog(getString(R.string.unrecognized_uri, uri), EXIT);
             return;
         }
-            try {
-                formLoaderTask = new FormLoaderTask(instancePath, null, null);
-                showFormLoadingDialogFragment();
-                formLoaderTask.execute(formPath);
-            }catch (Exception ex)
-            {
-               String a=ex.getMessage();
-            }
+        try {
+            formLoaderTask = new FormLoaderTask(instancePath, null, null);
+            showFormLoadingDialogFragment();
+            formLoaderTask.execute(formPath);
+        }catch (Exception ex)
+        {
+            String a=ex.getMessage();
+        }
     }
 
     public Bundle getState() {
@@ -1658,11 +1658,11 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                 for (int i = 0; i < attrs.size(); i++) {
                     if (!autoSaved && "saveIncomplete".equals(attrs.get(i).getName())) {
                         Collect.getInstance().getDefaultTracker()
-                            .send(new HitBuilders.EventBuilder()
-                                .setCategory("WidgetAttribute")
-                                .setAction("saveIncomplete")
-                                .setLabel(Collect.getCurrentFormIdentifierHash())
-                                .build());
+                                .send(new HitBuilders.EventBuilder()
+                                        .setCategory("WidgetAttribute")
+                                        .setAction("saveIncomplete")
+                                        .setLabel(Collect.getCurrentFormIdentifierHash())
+                                        .build());
                         saveDataToDisk(false, false, null, false);
                         autoSaved = true;
                     }
@@ -2882,15 +2882,20 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                 if (AutoSendWorker.formShouldBeAutoSent(formId, GeneralSharedPreferences.isAutoSendEnabled())) {
                     requestAutoSend();
                 } else {
-            // Force writing of audit since we are exiting
+                    // Force writing of audit since we are exiting
                     formController.getAuditEventLogger().logEvent(AuditEvent.AuditEventType.FORM_EXIT, true);
                 }
-
+                principal principalo= new principal();
                 if(activos.getListapro().size()==0){
                     activos.setListapro(mapal.getListapro());
+                    if(activos.getListapro().size()==0){
+                        activos.setListapro(principalo.getListapro());
+                    }
                 }
+
+
                 for (BranchProducto bp: activos.getListapro()
-                     ) {
+                ) {
                     /*devoluciones y ventas*/
                     if(!bp.getE_valor().equals("0") && bp.getE_valor()!="e_valor") {
                         ToastUtils.showLongToast(bp.getE_valor());
@@ -2918,7 +2923,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.codproducto, bp.getE_codproducto());
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.tipooperacion, "DE");
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.fecha, dateFormat.format(date));
-                                    Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, bp.e_code);
+                                    Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, codigobranch);
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.stock, s - branchdev.getCant_entrega());
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.estado, "F");
                                     usdbh = usdbh.open();
@@ -2937,7 +2942,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.codproducto, bp.getE_codproducto());
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.tipooperacion, "D");
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.fecha, dateFormat.format(date));
-                                    Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, bp.e_code);
+                                    Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, codigobranch);
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.stock, s);
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.estado, "F");
                                     usdbh = usdbh.open();
@@ -2966,7 +2971,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                         Objdatosop.put(EstructuraBD.CabeceraOperaciones.codproducto, bp.getE_codproducto());
                         Objdatosop.put(EstructuraBD.CabeceraOperaciones.tipooperacion, "S");
                         Objdatosop.put(EstructuraBD.CabeceraOperaciones.fecha, dateFormat.format(date));
-                        Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, bp.e_code);
+                        Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, codigobranch);
                         Objdatosop.put(EstructuraBD.CabeceraOperaciones.stock, s - c);
                         Objdatosop.put(EstructuraBD.CabeceraOperaciones.estado, "F");
                         usdbh = usdbh.open();
@@ -2994,7 +2999,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.codproducto, bp.getE_codproducto());
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.tipooperacion, "DE");
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.fecha, dateFormat.format(date));
-                                    Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, bp.e_code);
+                                    Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, codigobranch);
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.stock, s - branchdev.getCant_entrega());
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.estado, "F");
                                     usdbh = usdbh.open();
@@ -3020,7 +3025,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.codproducto, bp.getE_codproducto());
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.tipooperacion, "D");
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.fecha, dateFormat.format(date));
-                                    Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, bp.e_code);
+                                    Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, codigobranch);
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.stock, s);
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.estado, "F");
                                     usdbh = usdbh.open();
@@ -3032,7 +3037,9 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                         }
                     }
                 }
-
+                activos.setListapro(mapa.getListapro());
+                mapal.getListapro().clear();
+                principalo.getListapro().clear();
                 finishReturnInstance();
 
 

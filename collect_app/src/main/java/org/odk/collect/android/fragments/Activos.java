@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import org.odk.collect.android.R;
 import org.odk.collect.android.activities.Engine_util;
 import org.odk.collect.android.activities.FormChooserList;
+import org.odk.collect.android.activities.principal;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.Branch;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.BranchProducto;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.BranchSession;
@@ -43,7 +44,7 @@ public class Activos  extends Fragment {
     final BranchSession objBranchSeccion = new BranchSession();
     EstadoFormularioSession objseccion= new EstadoFormularioSession();
     Engine_util objutil;
-     static List<BranchProducto> listapro= new ArrayList<>();
+    static List<BranchProducto> listapro= new ArrayList<>();
     final CodigoSession objcodigoSession = new CodigoSession();
     public Activos() {
 
@@ -191,6 +192,10 @@ public class Activos  extends Fragment {
                                 Cursor cursor = objutil.Listarproductos(args, opcion, where1);
                                 int cod=0;
                                 listapro.clear();
+                                principal principalo = new principal();
+                                mapa mapal= new mapa();
+                                mapal.getListapro().clear();
+                                principalo.getListapro().clear();
                                 if (cursor.moveToFirst()) {
 
                                     do {
