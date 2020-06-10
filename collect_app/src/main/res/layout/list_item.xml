@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        <TextView
+            android:id="@+id/lblListItem"
+            android:layout_width="110pt"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginLeft="10dp"
+
+            android:padding="2dp"
+            android:textColor="#489e37" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:id="@+id/texto"
+                android:padding="2dp"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_width="110pt"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/lblListcout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+                android:textColor="@color/blue_500"
+                android:textSize="20dp" />
+        </TableRow>
+
+
+    </TableLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,1347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5fe0c8bf-7028-4994-90c4-c2045de15f47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/EjecutarWebApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/HttpManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/ThreadEnvio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/Entidades/EstadoEditar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/Entidades/EstadoFormularioSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/Entidades/EstadosFormulario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/EstadosFinalizados.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/EstadosFormularios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable-xxxhdpi/morado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable-xxxhdpi/notes2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable-xxxhdpi/visibility_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout-v21/activity_chooser_list_status.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout-v21/two_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormChooserList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormChooserList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/InstanceChooserList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/InstanceChooserList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/configuracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/configuracion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/dao/InstancesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/dao/InstancesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/BaseDatosEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/BaseDatosEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/Entidades/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/Entidades/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/Entidades/BranchSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/Entidades/BranchSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/EstructuraBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/EstructuraBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/Activos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/Activos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/Finalizados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/Finalizados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/mapa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/logic/FormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/logic/FormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/GeneralKeys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/GeneralKeys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/ServerPreferencesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/ServerPreferencesFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/tasks/InstanceServerUploaderTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/tasks/InstanceServerUploaderTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/utilities/SimpleFragmentPagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/utilities/SimpleFragmentPagerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/utilities/VersionHidingCursorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/odk/collect/android/utilities/VersionHidingCursorAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/content_configuracion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/content_configuracion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/main_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/main_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/toolbar_without_progressbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/toolbar_without_progressbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/untranslated.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/untranslated.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/EstadosFormularios.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="186" column="7" selection-start-line="186" selection-start-column="7" selection-end-line="188" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4642#4732#1" expanded="true" />
+                <element signature="e#7985#8193#1" expanded="true" />
+                <element signature="e#8202#8287#1" expanded="true" />
+                <element signature="e#8407#8439#0" expanded="true" />
+                <element signature="e#8407#8439#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/ServerPreferencesFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="123" column="95" selection-start-line="123" selection-start-column="95" selection-end-line="123" selection-end-column="95" />
+              <folding>
+                <element signature="e#4760#4840#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="2871" column="67" lean-forward="true" selection-start-line="2871" selection-start-column="67" selection-end-line="2871" selection-end-column="67" />
+              <folding>
+                <element signature="e#81856#82052#0" expanded="true" />
+                <element signature="e#81856#82052#0" expanded="true" />
+                <element signature="e#81883#82042#0" expanded="true" />
+                <element signature="e#81883#82042#0" expanded="true" />
+                <element signature="e#81971#81996#0" expanded="true" />
+                <element signature="e#82142#82153#0" expanded="true" />
+                <element signature="e#82142#82163#0" expanded="true" />
+                <element signature="e#82231#82272#0" expanded="true" />
+                <element signature="e#82231#82272#0" expanded="true" />
+                <element signature="e#82649#82701#1" expanded="true" />
+                <element signature="e#82681#82700#0" expanded="true" />
+                <element signature="e#83535#84842#0" expanded="true" />
+                <element signature="e#83740#83801#1" expanded="true" />
+                <element signature="e#83760#83800#0" expanded="true" />
+                <element signature="e#83818#84778#0" expanded="true" />
+                <element signature="e#83845#83866#0" expanded="true" />
+                <element signature="e#83818#84778#0" expanded="true" />
+                <element signature="e#83535#84842#0" expanded="true" />
+                <element signature="e#113298#113344#1" expanded="true" />
+                <element signature="e#114596#114647#1" expanded="true" />
+                <element signature="e#114825#114869#1" expanded="true" />
+                <element signature="e#127660#127704#1" expanded="true" />
+                <element signature="e#127677#127703#0" expanded="true" />
+                <element signature="e#127713#127765#1" expanded="true" />
+                <element signature="e#127745#127764#0" expanded="true" />
+                <element signature="e#127774#127824#1" expanded="true" />
+                <element signature="e#127833#127922#1" expanded="true" />
+                <element signature="e#127845#127866#0" expanded="true" />
+                <element signature="e#127845#127886#0" expanded="true" />
+                <element signature="e#127845#127910#0" expanded="true" />
+                <element signature="e#127931#128030#1" expanded="true" />
+                <element signature="e#127951#127972#0" expanded="true" />
+                <element signature="e#127951#127992#0" expanded="true" />
+                <element signature="e#127951#128016#0" expanded="true" />
+                <element signature="e#128039#128085#1" expanded="true" />
+                <element signature="e#128094#131046#0" expanded="true" />
+                <element signature="e#128094#131046#0" expanded="true" />
+                <element signature="e#128555#128577#0" expanded="true" />
+                <element signature="e#128596#128632#0" expanded="true" />
+                <element signature="e#128979#129015#0" expanded="true" />
+                <element signature="e#129109#129405#0" expanded="true" />
+                <element signature="e#129090#129122#0" expanded="true" />
+                <element signature="e#129109#129405#0" expanded="true" />
+                <element signature="e#129187#129293#0" expanded="true" />
+                <element signature="e#129164#129200#0" expanded="true" />
+                <element signature="e#129187#129293#0" expanded="true" />
+                <element signature="e#129187#129293#0" expanded="true" />
+                <element signature="e#129187#129293#0" expanded="true" />
+                <element signature="e#129327#129363#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Android/Sdk/sources/android-28/android/widget/AdapterView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="370" selection-start-line="370" selection-end-line="370" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Android/Sdk/sources/android-28/android/widget/ListView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
+              <folding>
+                <element signature="e#65404#66014#0" expanded="true" />
+                <element signature="e#65404#66014#0" expanded="true" />
+                <element signature="e#65404#66014#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+                <element signature="e#65972#65991#0" expanded="true" />
+                <element signature="e#65493#65998#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/tasks/InstanceServerUploaderTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="113" column="140" selection-start-line="113" selection-start-column="133" selection-end-line="113" selection-end-column="140" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/principal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="120" column="78" selection-start-line="120" selection-start-column="78" selection-end-line="120" selection-end-column="78" />
+              <folding>
+                <element signature="e#4192#9752#0" expanded="true" />
+                <element signature="e#4192#9752#0" expanded="true" />
+                <element signature="e#9191#9270#1" expanded="true" />
+                <element signature="e#9279#9338#1" expanded="true" />
+                <element signature="e#9919#10797#0" expanded="true" />
+                <element signature="e#9351#9398#0" expanded="true" />
+                <element signature="e#9919#10797#0" expanded="true" />
+                <element signature="e#9469#9516#0" expanded="true" />
+                <element signature="e#9559#9575#0" expanded="true" />
+                <element signature="e#9671#9825#1" expanded="true" />
+                <element signature="e#10500#10585#0" expanded="true" />
+                <element signature="e#9954#10001#0" expanded="true" />
+                <element signature="e#10500#10585#0" expanded="true" />
+                <element signature="e#10807#12071#0" expanded="true" />
+                <element signature="e#10807#12071#0" expanded="true" />
+                <element signature="e#12081#12336#0" expanded="true" />
+                <element signature="e#12081#12336#0" expanded="true" />
+                <element signature="e#12347#14264#0" expanded="true" />
+                <element signature="e#12347#14264#0" expanded="true" />
+                <element signature="e#17155#17211#1" expanded="true" />
+                <element signature="e#17995#18942#0" expanded="true" />
+                <element signature="e#17995#18942#0" expanded="true" />
+                <element signature="e#18081#18129#0" expanded="true" />
+                <element signature="e#18081#18129#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/BaseDatosEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="674" column="23" selection-start-line="674" selection-start-column="23" selection-end-line="674" selection-end-column="23" />
+              <folding>
+                <element signature="e#27608#27673#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/values-es/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="34" column="32" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Android/Sdk/sources/android-28/android/view/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="13481" selection-start-line="13481" selection-end-line="13481" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>case SaveToDiskTask.SAVED:</find>
+      <find>apache</find>
+      <find>nuevo</find>
+      <find>FormChooserList</find>
+      <find>processChunk</find>
+      <find>StringBuilder selectionBuf = new StringBuilder(InstanceColumns._ID + &quot; IN (&quot;);</find>
+      <find>String[] selectionArgs = new String[high - low];</find>
+      <find>HttpContext localContext = Collect.getInstance().getHttpContext();</find>
+      <find>servicioDyvenpro</find>
+      <find>storea</find>
+      <find>_odk</find>
+      <find>default_server</find>
+      <find>API</find>
+      <find>davi</find>
+      <find>KEY_SERVER_URL</find>
+      <find>Ajustes de</find>
+      <find>aggregate_preferences</find>
+      <find>URL del Servidor</find>
+      <find>change_server_url</find>
+      <find>serverUrlPreference</find>
+      <find>server_url</find>
+      <find>default_server_url</find>
+      <find>activo</find>
+      <find>#EEEEEE</find>
+      <find>no se</find>
+      <find>dav</find>
+      <find>save</find>
+      <find>saveDataToDisk</find>
+      <find>cambi</find>
+      <find>data_saved_error</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>msbancoGuayaquil</replace>
+      <replace>#000000</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/Entidades/EstadoFormularioSession.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/configuracion.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/resumen.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/utilities/VersionHidingCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/InstanceChooserList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/HttpManager.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/logic/FormController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/Activos.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/Finalizados.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/mapa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/dao/InstancesDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/application/Collect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/EstadosFormularios.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/utilities/SimpleFragmentPagerAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormChooserList.java" />
+        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/toolbar_without_progressbar.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/EjecutarWebApi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/tasks/InstanceServerUploaderTask.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/main_menu.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/ThreadEnvio.java" />
+        <option value="$PROJECT_DIR$/src/main/res/values/untranslated.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/GeneralKeys.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/ServerPreferencesFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/content_configuracion.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/EstadosFinalizados.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/principal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1928" />
+    <option name="y" value="-4" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Course" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="android" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="android" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="android" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="android" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="android" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="android" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="android" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="notes" type="c431d0b8:AndroidResGroupNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="collect_app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="xml" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="collect-1.22.4" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="D:/Android/Sdk" />
+    <property name="device.picker.selection" value="5200e766606555a5" />
+    <property name="last_opened_file_path" value="D:/DesarrolloMovil/collect-master-storeaudit" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.odk.collect.android.activities" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\bancoguayaquil\collect-1.22.4\collect_app\src\main\res\drawable-xxxhdpi" />
+      <recent name="G:\bancoguayaquil\collect-1.22.4\collect_app\src\main\res\layout-v21" />
+      <recent name="G:\bancoguayaquil\collect-1.22.4\collect_app\src\main\java\org\odk\collect\android\fragments" />
+      <recent name="G:\bancoguayaquil\collect-1.22.4\collect_app\src\main\java\org\odk\collect\android\database" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="collect_app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="collect_app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5fe0c8bf-7028-4994-90c4-c2045de15f47" name="Default Changelist" comment="" />
+      <created>1571426639355</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571426639355</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1928" y="-4" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Structure" order="0" side_tool="true" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Resources Explorer" order="6" />
+      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.32995737" />
+      <window_info id="Captures" order="8" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Run" />
+      <window_info anchor="bottom" id="Debug" weight="0.32936078" />
+      <window_info anchor="bottom" id="Find" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="Logcat" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="5" weight="0.32936078" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" />
+      <window_info anchor="bottom" id="Educational.CheckDetails" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Gradle" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Preview" order="3" weight="0.32995737" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
+    </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/tasks/InstanceServerUploaderTask.java</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/tasks/InstanceServerUploaderTask.java</url>
+          <line>107</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/androidTest/java/org/odk/collect/android/test/MockedServerTest.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/ServerPreferencesFragment.java</url>
+          <line>117</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/GeneralKeys.java</url>
+          <line>101</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java</url>
+          <line>1873</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java</url>
+          <line>1875</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java</url>
+          <line>1032</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java</url>
+          <line>2866</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java</url>
+          <line>2849</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java</url>
+          <line>2848</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java</url>
+          <line>2843</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>objBranchSeccion</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>objBranchSeccion.getE_code()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>e.getDisplayMessage()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>outcome.messagesByInstanceId.toString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>if(outcome.messagesByInstanceId.toString().equals(&quot;{3=full submission upload was successful!}&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>if(outcome.messagesByInstanceId.toString().equals(&quot;{3=full submission upload was successful!}&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>outcome.messagesByInstanceId.get(&quot;key&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>outcome.messagesByInstanceId.get(0)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>outcome.messagesByInstanceId</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>outcome.messagesByInstanceId.get(&quot;Key&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/mapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/Activos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="e#13571#13689#0" expanded="true" />
+            <element signature="e#13571#13689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/dao/InstancesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+          <folding>
+            <element signature="e#2580#2723#0" expanded="true" />
+            <element signature="e#2580#2723#0" expanded="true" />
+            <element signature="e#2580#2723#0" expanded="true" />
+            <element signature="e#2580#2723#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/application/Collect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="178" column="13" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/InstanceChooserList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="127" column="39" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="39" />
+          <folding>
+            <element signature="e#5156#8284#0" expanded="true" />
+            <element signature="e#5179#5199#0" expanded="true" />
+            <element signature="e#5156#8284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormChooserList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="57" column="28" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="28" />
+          <folding>
+            <element signature="e#3448#3462#0" expanded="true" />
+            <element signature="e#4024#4078#0" expanded="true" />
+            <element signature="e#4039#4078#0" expanded="true" />
+            <element signature="e#4301#4314#0" expanded="true" />
+            <element signature="e#4352#4515#0" expanded="true" />
+            <element signature="e#4352#4515#0" expanded="true" />
+            <element signature="e#4550#4575#0" expanded="true" />
+            <element signature="e#5517#5527#0" expanded="true" />
+            <element signature="e#5517#5537#0" expanded="true" />
+            <element signature="e#7685#7686#0" expanded="true" />
+            <element signature="e#7739#7740#0" expanded="true" />
+            <element signature="e#9486#9487#0" expanded="true" />
+            <element signature="e#9530#9531#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/0a929f95c1f3ad7e6cc721acf2f7d4a7/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/6ecbb4caaa121d991d65d6a5a9c7f142/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/c4162cceb5a6953dfc19843b6c617a28/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+          <folding>
+            <element signature="e#3541#3559#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/toolbar.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/toolbar_action_bar_shadow.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/EjecutarWebApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-806" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/main_menu.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="152" column="52" selection-start-line="152" selection-start-column="52" selection-end-line="152" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/form_entry.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/toolbar_without_progressbar.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/configuracion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-398">
+          <caret line="538" column="130" selection-start-line="538" selection-start-column="130" selection-end-line="538" selection-end-column="130" />
+          <folding>
+            <element signature="method#getIndexSpinner#0;class#configuracion#0" />
+            <element signature="method#obterImeid#0;class#configuracion#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/androidTest/java/org/odk/collect/android/test/MockedServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="85" column="50" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/ThreadEnvio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+          <folding>
+            <element signature="e#898#1007#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/utilities/WebCredentialsUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="78" column="7" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+          <folding>
+            <element signature="e#2238#2317#0" expanded="true" />
+            <element signature="e#2247#2285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/AggregatePreferencesAdder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/upload/InstanceServerUploader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="294" column="73" selection-start-line="294" selection-start-column="59" selection-end-line="294" selection-end-column="73" />
+          <folding>
+            <element signature="e#12975#13017#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/untranslated.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/ServerPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/xml/aggregate_preferences.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="35" />
+          <folding>
+            <element signature="e#175#206#0" expanded="true" />
+            <element signature="e#268#295#0" expanded="true" />
+            <element signature="e#409#429#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_configuracion.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_configuracion.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-141">
+          <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/spinner_personalizado.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/sort_item_layout.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout-v21/two_item.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="52" column="45" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/spinner_layout.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/Finalizados.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="301" column="63" lean-forward="true" selection-start-line="301" selection-start-column="63" selection-end-line="301" selection-end-column="63" />
+          <folding>
+            <element signature="e#14374#18215#0" expanded="true" />
+            <element signature="e#14378#14400#0" expanded="true" />
+            <element signature="e#14378#14400#0" expanded="true" />
+            <element signature="e#14374#18215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1957" selection-start-line="1957" selection-end-line="1957" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/utilities/SimpleFragmentPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="73" column="51" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="66" />
+          <folding>
+            <element signature="e#2765#2822#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/EstadosFinalizados.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="92" column="10" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2787#2872#1" expanded="true" />
+            <element signature="e#2942#2960#0" expanded="true" />
+            <element signature="e#2981#2992#0" expanded="true" />
+            <element signature="e#2993#3025#0" expanded="true" />
+            <element signature="e#2993#3025#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/Sdk/sources/android-28/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="4131" selection-start-line="4131" selection-end-line="4131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout-v21/activity_chooser_list_status.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/fragments/EstadosFormularios.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="186" column="7" selection-start-line="186" selection-start-column="7" selection-end-line="188" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4642#4732#1" expanded="true" />
+            <element signature="e#7985#8193#1" expanded="true" />
+            <element signature="e#8202#8287#1" expanded="true" />
+            <element signature="e#8407#8439#0" expanded="true" />
+            <element signature="e#8407#8439#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/Sdk/sources/android-28/android/os/AsyncTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-898">
+          <caret line="613" column="28" lean-forward="true" selection-start-line="613" selection-start-column="28" selection-end-line="613" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/tasks/InstanceServerUploaderTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="113" column="140" selection-start-line="113" selection-start-column="133" selection-end-line="113" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="120" column="78" selection-start-line="120" selection-start-column="78" selection-end-line="120" selection-end-column="78" />
+          <folding>
+            <element signature="e#4192#9752#0" expanded="true" />
+            <element signature="e#4192#9752#0" expanded="true" />
+            <element signature="e#9191#9270#1" expanded="true" />
+            <element signature="e#9279#9338#1" expanded="true" />
+            <element signature="e#9919#10797#0" expanded="true" />
+            <element signature="e#9351#9398#0" expanded="true" />
+            <element signature="e#9919#10797#0" expanded="true" />
+            <element signature="e#9469#9516#0" expanded="true" />
+            <element signature="e#9559#9575#0" expanded="true" />
+            <element signature="e#9671#9825#1" expanded="true" />
+            <element signature="e#10500#10585#0" expanded="true" />
+            <element signature="e#9954#10001#0" expanded="true" />
+            <element signature="e#10500#10585#0" expanded="true" />
+            <element signature="e#10807#12071#0" expanded="true" />
+            <element signature="e#10807#12071#0" expanded="true" />
+            <element signature="e#12081#12336#0" expanded="true" />
+            <element signature="e#12081#12336#0" expanded="true" />
+            <element signature="e#12347#14264#0" expanded="true" />
+            <element signature="e#12347#14264#0" expanded="true" />
+            <element signature="e#17155#17211#1" expanded="true" />
+            <element signature="e#17995#18942#0" expanded="true" />
+            <element signature="e#17995#18942#0" expanded="true" />
+            <element signature="e#18081#18129#0" expanded="true" />
+            <element signature="e#18081#18129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/ServerPreferencesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="123" column="95" selection-start-line="123" selection-start-column="95" selection-end-line="123" selection-end-column="95" />
+          <folding>
+            <element signature="e#4760#4840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/preferences/GeneralKeys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="105" column="66" selection-start-line="105" selection-start-column="66" selection-end-line="105" selection-end-column="66" />
+          <folding>
+            <element signature="e#5726#5831#0" expanded="true" />
+            <element signature="e#5726#5831#0" expanded="true" />
+            <element signature="e#5770#5830#0" expanded="true" />
+            <element signature="e#5770#5791#0" expanded="true" />
+            <element signature="e#5726#5831#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/database/BaseDatosEngine/BaseDatosEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="674" column="23" selection-start-line="674" selection-start-column="23" selection-end-line="674" selection-end-column="23" />
+          <folding>
+            <element signature="e#27608#27673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/Sdk/sources/android-28/android/widget/AdapterView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="370" selection-start-line="370" selection-end-line="370" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/Sdk/sources/android-28/android/widget/AbsListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="6411" selection-start-line="6411" selection-end-line="6411" />
+          <folding>
+            <element signature="e#242640#242690#1" expanded="true" />
+            <element signature="e#242712#242722#1" expanded="true" />
+            <element signature="e#242914#242915#0" expanded="true" />
+            <element signature="e#242958#242959#0" expanded="true" />
+            <element signature="e#243268#243428#0" expanded="true" />
+            <element signature="e#243273#243283#1" expanded="true" />
+            <element signature="e#243268#243428#0" expanded="true" />
+            <element signature="e#243268#243428#0" expanded="true" />
+            <element signature="e#243268#243428#0" expanded="true" />
+            <element signature="e#243268#243428#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/Sdk/sources/android-28/android/widget/ListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
+          <folding>
+            <element signature="e#65404#66014#0" expanded="true" />
+            <element signature="e#65404#66014#0" expanded="true" />
+            <element signature="e#65404#66014#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+            <element signature="e#65972#65991#0" expanded="true" />
+            <element signature="e#65493#65998#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/Sdk/sources/android-28/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="13481" selection-start-line="13481" selection-end-line="13481" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values-es/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="34" column="32" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/odk/collect/android/activities/FormEntryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="2871" column="67" lean-forward="true" selection-start-line="2871" selection-start-column="67" selection-end-line="2871" selection-end-column="67" />
+          <folding>
+            <element signature="e#81856#82052#0" expanded="true" />
+            <element signature="e#81856#82052#0" expanded="true" />
+            <element signature="e#81883#82042#0" expanded="true" />
+            <element signature="e#81883#82042#0" expanded="true" />
+            <element signature="e#81971#81996#0" expanded="true" />
+            <element signature="e#82142#82153#0" expanded="true" />
+            <element signature="e#82142#82163#0" expanded="true" />
+            <element signature="e#82231#82272#0" expanded="true" />
+            <element signature="e#82231#82272#0" expanded="true" />
+            <element signature="e#82649#82701#1" expanded="true" />
+            <element signature="e#82681#82700#0" expanded="true" />
+            <element signature="e#83535#84842#0" expanded="true" />
+            <element signature="e#83740#83801#1" expanded="true" />
+            <element signature="e#83760#83800#0" expanded="true" />
+            <element signature="e#83818#84778#0" expanded="true" />
+            <element signature="e#83845#83866#0" expanded="true" />
+            <element signature="e#83818#84778#0" expanded="true" />
+            <element signature="e#83535#84842#0" expanded="true" />
+            <element signature="e#113298#113344#1" expanded="true" />
+            <element signature="e#114596#114647#1" expanded="true" />
+            <element signature="e#114825#114869#1" expanded="true" />
+            <element signature="e#127660#127704#1" expanded="true" />
+            <element signature="e#127677#127703#0" expanded="true" />
+            <element signature="e#127713#127765#1" expanded="true" />
+            <element signature="e#127745#127764#0" expanded="true" />
+            <element signature="e#127774#127824#1" expanded="true" />
+            <element signature="e#127833#127922#1" expanded="true" />
+            <element signature="e#127845#127866#0" expanded="true" />
+            <element signature="e#127845#127886#0" expanded="true" />
+            <element signature="e#127845#127910#0" expanded="true" />
+            <element signature="e#127931#128030#1" expanded="true" />
+            <element signature="e#127951#127972#0" expanded="true" />
+            <element signature="e#127951#127992#0" expanded="true" />
+            <element signature="e#127951#128016#0" expanded="true" />
+            <element signature="e#128039#128085#1" expanded="true" />
+            <element signature="e#128094#131046#0" expanded="true" />
+            <element signature="e#128094#131046#0" expanded="true" />
+            <element signature="e#128555#128577#0" expanded="true" />
+            <element signature="e#128596#128632#0" expanded="true" />
+            <element signature="e#128979#129015#0" expanded="true" />
+            <element signature="e#129109#129405#0" expanded="true" />
+            <element signature="e#129090#129122#0" expanded="true" />
+            <element signature="e#129109#129405#0" expanded="true" />
+            <element signature="e#129187#129293#0" expanded="true" />
+            <element signature="e#129164#129200#0" expanded="true" />
+            <element signature="e#129187#129293#0" expanded="true" />
+            <element signature="e#129187#129293#0" expanded="true" />
+            <element signature="e#129187#129293#0" expanded="true" />
+            <element signature="e#129327#129363#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

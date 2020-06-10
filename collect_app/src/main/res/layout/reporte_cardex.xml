@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:weightSum="8">
+            <TextView
+                android:id="@+id/venta"
+                android:layout_centerHorizontal="true"
+                android:text="VENTA"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                />
+
+            <TextView
+                android:id="@+id/saldo"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:layout_centerHorizontal="true"
+                android:text="SALDO"
+                />
+
+            <TextView
+                android:id="@+id/devolucion"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:layout_centerHorizontal="true"
+                android:text="DEVOL"
+                />
+
+            <TextView
+                android:id="@+id/devoventa"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:layout_centerHorizontal="true"
+                android:text="DEV.PROD"
+                />
+
+                <TextView
+                    android:id="@+id/operacion"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:layout_centerHorizontal="true"
+                    android:text="OPE"
+                    />
+
+                <TextView
+                    android:id="@+id/usd"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:layout_centerHorizontal="true"
+                    android:text="USD"
+                    />
+
+            <TextView
+                android:id="@+id/codlocal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:layout_centerHorizontal="true"
+                android:text="CLOCAL"
+              />
+
+            <TextView
+                android:id="@+id/producto"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:layout_centerHorizontal="true"
+                android:text="PRODUCTO"
+                />
+            </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:weightSum="8"
+        >
+        <TextView
+            android:id="@+id/sumventa"
+            android:layout_centerHorizontal="true"
+            android:text="0.00"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_light"
+            />
+
+        <TextView
+            android:id="@+id/sumsaldo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:layout_centerHorizontal="true"
+            android:text="     "
+            />
+
+        <TextView
+            android:id="@+id/sumdevolucion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:text="0.00"
+            />
+
+        <TextView
+            android:id="@+id/sumdevoventa"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:text="0.00"
+            />
+
+        <TextView
+            android:id="@+id/soperacion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:layout_centerHorizontal="true"
+            android:text="   "
+            />
+
+        <TextView
+            android:id="@+id/sumuusd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:text="0.00"
+            />
+
+        <TextView
+            android:id="@+id/sumcodlocal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:layout_centerHorizontal="true"
+            android:text="     "
+            />
+
+        <TextView
+            android:id="@+id/sumproducto"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:layout_centerHorizontal="true"
+            android:text="      "
+            />
+    </LinearLayout>
+
+            <ListView
+                android:id="@+id/cardex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+</LinearLayout>
+

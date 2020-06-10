@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.odk.collect.android.activities.Item_Cardex">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="8">
+
+    <TextView
+        android:id="@+id/venta2"
+        android:layout_centerHorizontal="true"
+        android:text="VENTA"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        />
+
+    <TextView
+        android:id="@+id/saldo2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:layout_centerHorizontal="true"
+        android:text="SALDO"
+      />
+
+    <TextView
+        android:id="@+id/devolucion2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:layout_centerHorizontal="true"
+        android:text="DEVOL"
+      />
+
+    <TextView
+        android:id="@+id/devoventa2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:layout_centerHorizontal="true"
+        android:text="DEV.PROD"/>
+    <TextView
+        android:id="@+id/operacion2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:layout_centerHorizontal="true"
+        android:text="OPE"/>
+
+        <TextView
+            android:id="@+id/usd2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:layout_centerHorizontal="true"
+            android:text="USD"/>
+
+    <TextView
+        android:id="@+id/codlocal2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:layout_centerHorizontal="true"
+        android:text="CLOCAL"/>
+
+    <TextView
+        android:id="@+id/producto2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:layout_centerHorizontal="true"
+        android:text="PRODUCTO"/>
+
+    </LinearLayout>
+</RelativeLayout>
