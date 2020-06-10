@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../collect-1.22.4.iml" filepath="$PROJECT_DIR$/../collect-1.22.4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/collect_app.iml" filepath="$PROJECT_DIR$/collect_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/collect_app.iml" filepath="$PROJECT_DIR$/collect_app.iml" group="nutricoberturav2020/collect_app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1754767990/nutricoberturav2020.iml" filepath="$PROJECT_DIR$/.idea/modules/1754767990/nutricoberturav2020.iml" group="nutricoberturav2020" />
     </modules>
   </component>
 </project>
