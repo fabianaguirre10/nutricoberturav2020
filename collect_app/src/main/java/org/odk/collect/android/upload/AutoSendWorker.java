@@ -28,6 +28,7 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.analytics.HitBuilders;
 
 import org.odk.collect.android.R;
+import org.odk.collect.android.activities.EjecutarWebApi;
 import org.odk.collect.android.activities.NotificationActivity;
 import org.odk.collect.android.application.Collect;
 import org.odk.collect.android.dao.FormsDao;
@@ -63,7 +64,8 @@ import static org.odk.collect.android.utilities.ApplicationConstants.RequestCode
 
 public class AutoSendWorker extends Worker {
     private static final int AUTO_SEND_RESULT_NOTIFICATION_ID = 1328974928;
-
+    List<String> formularios= new ArrayList<>();
+    String imei="";
     public AutoSendWorker(@NonNull Context c, @NonNull WorkerParameters parameters) {
         super(c, parameters);
     }
@@ -166,6 +168,7 @@ public class AutoSendWorker extends Worker {
                                         "HTTP-Sheets auto" : "HTTP auto")
                                 .setLabel(Collect.getFormIdentifierHash(instance.getJrFormId(), instance.getJrVersion()))
                                 .build());
+                formularios.add(instance.getJrFormId());
             } catch (UploadException e) {
                 Timber.d(e);
                 anyFailure = true;
@@ -176,7 +179,14 @@ public class AutoSendWorker extends Worker {
 
         String message = formatOverallResultMessage(resultMessagesByInstanceId);
         showUploadStatusNotification(anyFailure, message);
-
+        imei=deviceId;
+        imei=imei.replace("imei:", "");
+        imei=imei.replace("android_id:", "");
+        for (String x: formularios) {
+            //llamar api david
+            EjecutarWebApi tarea = new EjecutarWebApi();
+            tarea.execute("http://geomardis6728.cloudapp.net/msbancoGuayaquil/api/MigrationTask?IMEI="+imei.replace("imei:","")+"&_form="+x);
+        }
         return Result.SUCCESS;
     }
 
