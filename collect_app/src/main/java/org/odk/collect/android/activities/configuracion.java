@@ -9,15 +9,19 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.provider.Settings;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -63,6 +67,7 @@ public class configuracion extends AppCompatActivity {
     final CuentaSession objcuentaSession= new CuentaSession();
     final ConfiguracionSession objconfiguracionSession= new ConfiguracionSession();
     String Estado="";
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -236,20 +241,41 @@ public class configuracion extends AppCompatActivity {
         }
         return index;
     }
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @SuppressLint("MissingPermission")
-    public String  obterImeid(){
-
+    public String obterImeid() {
         final String androidIdName = Settings.Secure.ANDROID_ID;
-        String myIMEI = Settings.Secure.getString(Collect.getInstance().getApplicationContext().getContentResolver(), androidIdName);
+
         TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
         TelephonyManager mTelephony = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String simSerialNo="";
+         String  myIMEI = mTelephony.getDeviceId();
 
-        if (mTelephony.getDeviceId() != null) {
-            myIMEI = mTelephony.getDeviceId();
+        if (myIMEI == null) {
+            SubscriptionManager subsManager = (SubscriptionManager) getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
+
+            List<SubscriptionInfo> subsList = subsManager.getActiveSubscriptionInfoList();
+
+            if (subsList!=null) {
+                for (SubscriptionInfo subsInfo : subsList) {
+                    if (subsInfo != null) {
+                        simSerialNo  = subsInfo.getIccId();
+                    }
+                }
+
+            }
+            if(simSerialNo.equals(""))
+                simSerialNo = "358240051111110";
+            myIMEI=simSerialNo;
         }
 
-
+        if (myIMEI == null) {
+            myIMEI = Settings.Secure.getString(Collect.getInstance().getApplicationContext().getContentResolver(), androidIdName);
+        }
+     /* String  deviceId = new PropertyManager(Collect.getInstance().getApplicationContext())
+                .getSingularProperty(PropertyManager.withUri(PropertyManager.PROPMGR_DEVICE_ID));*/
         return myIMEI;
+
     }
     //clase para cargar campania
     public class CargarCampaniasCuentas extends AsyncTask<Void,Void,String> {
@@ -430,6 +456,7 @@ public class configuracion extends AppCompatActivity {
 
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
         @Override
         protected String doInBackground(Void... params) {
             // These two need to be declared outside the try/catch
@@ -508,11 +535,13 @@ public class configuracion extends AppCompatActivity {
             progress.setMax(respJSON.length());
             progress.show();
             final int totalProgressTime = respJSON.length();
+
             final Thread t = new Thread() {
                 @Override
                 public void run() {
                     int jumpTime = 0;
                     while(jumpTime < totalProgressTime) {
+
                         try {
                             JSONObject obj = respJSON.getJSONObject(jumpTime);
                             String id = obj.getString("id");
@@ -610,15 +639,22 @@ public class configuracion extends AppCompatActivity {
 
 
                     progress.dismiss();
+                    if(totalProgressTime>0){
+                        if(totalProgressTime==jumpTime){
+                            CargarProductos cargarProductos = new CargarProductos(context);
+                            cargarProductos.execute();
+                        }
+                    }
 
                 }
             };
             t.start();
 
-                CargarProductos cargarProductos = new CargarProductos(context);
-                cargarProductos.execute();
+
+
 
         }
+
     }
 
 
@@ -787,17 +823,17 @@ public class configuracion extends AppCompatActivity {
 
 
                     progress.dismiss();
+                    if(totalProgressTime>0){
+                        if(totalProgressTime==jumpTime){
+                            CargarProductosStock cargarProductosStock = new CargarProductosStock(context);
+                            cargarProductosStock.execute();
+                        }
+                    }
 
                 }
             };
             t.start();
-            try {
-                t.join();
-                CargarProductosStock cargarProductosStock = new CargarProductosStock(context);
-                cargarProductosStock.execute();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
 
         }
     }
@@ -829,6 +865,7 @@ public class configuracion extends AppCompatActivity {
 
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
         @Override
         protected String doInBackground(Void... params) {
             // These two need to be declared outside the try/catch
@@ -950,17 +987,19 @@ public class configuracion extends AppCompatActivity {
 
 
                     progress.dismiss();
-                    if(totalProgressTime>0){
 
-                    }
+                        if(totalProgressTime==jumpTime){
+                            startActivity(new Intent(context, principal.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                            finish();
+                        }
+
                 }
             };
             t.start();
 
                // t.join();
-                startActivity(new Intent(context, principal.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
-                finish();
+
 
         }
     }

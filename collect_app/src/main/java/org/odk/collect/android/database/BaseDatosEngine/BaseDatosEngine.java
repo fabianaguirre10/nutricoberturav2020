@@ -28,7 +28,7 @@ import timber.log.Timber;
 public class BaseDatosEngine {
     private static final String NOMBRE_BASE_DATOS = "EngineDatos.db";
 
-    private static final int VERSION_ACTUAL = 23;
+    private static final int VERSION_ACTUAL = 44;
     private DatabaseHelperEngine dbHelper;
     private SQLiteDatabase db;
     interface Tablas {
@@ -202,7 +202,7 @@ public class BaseDatosEngine {
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Configuracion);
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Producto);
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Operacion);
-            if(newVersion==23){
+            if(newVersion==44){
                 onCreate(db);
             }
         }
