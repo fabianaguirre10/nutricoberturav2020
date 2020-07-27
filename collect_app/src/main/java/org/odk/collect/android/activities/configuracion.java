@@ -2,6 +2,8 @@ package org.odk.collect.android.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +30,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -78,7 +81,23 @@ public class configuracion extends AppCompatActivity {
         radnombre = (RadioButton) findViewById(R.id.radnombre);
         radcodigo = (RadioButton) findViewById(R.id.radcodigo);
         TextView idtext =(TextView) findViewById(R.id.textid);
-        idtext.setText(obterImeid());
+        idtext.setText("Nutri-Pro 27072020");
+        TextView TextversionImeid = (TextView) findViewById(R.id.txtIdVersionDivice);
+        ImageButton copibutton = (ImageButton) findViewById(R.id.IdbtnCopi);
+        TextversionImeid.setText(obterImeid());
+        copibutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ClipboardManager myClipboard = myClipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                String text = TextversionImeid.getText().toString();
+                ClipData clip = ClipData.newPlainText("text", text );
+                myClipboard.setPrimaryClip(clip);
+                Toast.makeText(getApplication(),
+                        "ID fue copiado", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         BaseDatosEngine usdbh = new BaseDatosEngine();
         usdbh = usdbh.open();
         Cursor c= usdbh.ConfiguracionLista();
@@ -752,7 +771,6 @@ public class configuracion extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String jsonString) {
-            progressDialog.dismiss();
             progress=new ProgressDialog(context);
             progress.setMessage("Descargando Productos....");
             progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -852,6 +870,7 @@ public class configuracion extends AppCompatActivity {
         protected void onPreExecute() {
             // set up progress dialog
             try {
+
                 progressDialog = new ProgressDialog(context);
                 progressDialog.setIndeterminate(true);
                 progressDialog.setCanceledOnTouchOutside(false);
@@ -933,7 +952,6 @@ public class configuracion extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String jsonString) {
-            progressDialog.dismiss();
             progress=new ProgressDialog(context);
             progress.setMessage("Descargando Productos Stock....");
             progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);

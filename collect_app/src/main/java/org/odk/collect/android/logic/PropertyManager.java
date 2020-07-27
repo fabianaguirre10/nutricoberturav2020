@@ -14,13 +14,19 @@
 
 package org.odk.collect.android.logic;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+
+import androidx.annotation.RequiresApi;
 
 import org.javarosa.core.services.IPropertyManager;
 import org.javarosa.core.services.properties.IPropertyRules;
@@ -109,6 +115,7 @@ public class PropertyManager implements IPropertyManager {
     }
 
     // telephonyManager.getDeviceId() requires permission READ_PHONE_STATE (ISSUE #2506). Permission should be handled or exception caught.
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     private IdAndPrefix findDeviceId(Context context, TelephonyManager telephonyManager) throws SecurityException {
         final String androidIdName = Settings.Secure.ANDROID_ID;
         String deviceId = telephonyManager.getDeviceId();
@@ -141,10 +148,48 @@ public class PropertyManager implements IPropertyManager {
             deviceId = Settings.Secure.getString(context.getContentResolver(), androidIdName);
             scheme = androidIdName;
         }
+        if (deviceId == null) {
 
+            deviceId = GetIMEID(context);
+            scheme = androidIdName;
+        }
         return new IdAndPrefix(deviceId, scheme);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
+    @SuppressLint("MissingPermission")
+    public String GetIMEID(Context context) {
+
+        final String androidIdName = Settings.Secure.ANDROID_ID;
+
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+         String myIMEI = mTelephony.getDeviceId();
+
+        String simSerialNo="";
+
+        if (myIMEI == null) {
+
+            SubscriptionManager subsManager = (SubscriptionManager) context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
+
+            @SuppressLint("MissingPermission") List<SubscriptionInfo> subsList = subsManager.getActiveSubscriptionInfoList();
+
+            if (subsList!=null) {
+                for (SubscriptionInfo subsInfo : subsList) {
+                    if (subsInfo != null) {
+                        simSerialNo  = subsInfo.getIccId();
+                    }
+                }
+            }
+            myIMEI=simSerialNo;
+        }
+        if (mTelephony.getDeviceId() != null && myIMEI==null) {
+            myIMEI = Settings.Secure.getString(Collect.getInstance().getApplicationContext().getContentResolver(), androidIdName);
+        }
+     /* String  deviceId = new PropertyManager(Collect.getInstance().getApplicationContext())
+                .getSingularProperty(PropertyManager.withUri(PropertyManager.PROPMGR_DEVICE_ID));*/
+        return myIMEI;
+    }
     /**
      * Initializes a property and its associated “with URI” property, from shared preferences.
      * @param preferences the shared preferences object to be used

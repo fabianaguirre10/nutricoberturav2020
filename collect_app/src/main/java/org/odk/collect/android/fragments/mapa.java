@@ -94,7 +94,7 @@ public class mapa extends SupportMapFragment implements GoogleMap.OnMarkerClickL
                     double latitud = Double.valueOf(cursor.getString(16).toString().replace(',', '.'));
                     double Longitud = Double.valueOf(cursor.getString(17).toString().replace(',', '.'));
                     LatLng latLng = new LatLng(latitud, Longitud);
-                    float zoom = 13;
+                    float zoom = 15;
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
                     MarkerOptions Opc = new MarkerOptions();
                     Opc.position(latLng);

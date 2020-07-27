@@ -62,7 +62,7 @@ public class Item_Cardex extends AppCompatActivity {
         sumventa.setText(String.valueOf(sumv));
         sumd.setText(String.valueOf(sumdevo));
         sumdv.setText(String.valueOf(sumdevoventa));
-        sumdolares.setText(String.valueOf(sumusd));
+        sumdolares.setText("$ "+String.valueOf(String.format("%.02f", sumusd)));
         sumventa.setTypeface(null, Typeface.BOLD);
         sumd.setTypeface(null, Typeface.BOLD);
         sumdv.setTypeface(null, Typeface.BOLD);
