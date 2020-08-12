@@ -10,6 +10,15 @@ public class ConfiguracionDB {
     public String Id_campania;
     public String FormaBusqueda;
     public String Estado;
+    public String Fechacargaruta;
+
+    public String getFechacargaruta() {
+        return Fechacargaruta;
+    }
+
+    public void setFechacargaruta(String fechacargaruta) {
+        Fechacargaruta = fechacargaruta;
+    }
 
     public ConfiguracionDB() {
     }

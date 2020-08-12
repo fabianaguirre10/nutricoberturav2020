@@ -2926,6 +2926,9 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.codlocal, codigobranch);
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.stock, s - branchdev.getCant_entrega());
                                     Objdatosop.put(EstructuraBD.CabeceraOperaciones.estado, "F");
+
+
+
                                     usdbh = usdbh.open();
                                     usdbh.insertardatosproductosOperaciones(Objdatosop);
                                     usdbh.close();
@@ -2965,6 +2968,26 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                         SimpleDateFormat dateFormat = new SimpleDateFormat(
                                 "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                         Date date = new Date();
+
+                        //Bucar productos vinculados en el combo
+                        String where="";
+                        String opcion = "";
+                        String[] args = new String[]{};
+                        where = "where 1=1 and idproductopromo =" +bp.get_id() ;
+                        usdbh = usdbh.open();
+                        Cursor cursor = usdbh.listarProductoPromo(args, opcion, where);
+                        usdbh.close();
+                        if (cursor.moveToFirst()) {
+                            do {
+
+                                String codproducto= cursor.getString(1);
+                                int cantidad= cursor.getInt(3);
+                                usdbh = usdbh.open();
+                                usdbh.ActualizarTablaStockpromociones(cantidad,Integer.valueOf(codproducto));
+                                usdbh.close();
+
+                            } while (cursor.moveToNext());
+                        }
 
                         ContentValues Objdatosop = new ContentValues();
                         Objdatosop.put(EstructuraBD.CabeceraOperaciones.cantidad, bp.getE_valor());

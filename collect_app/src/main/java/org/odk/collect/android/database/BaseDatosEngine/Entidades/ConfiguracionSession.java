@@ -10,6 +10,15 @@ public class ConfiguracionSession {
     public static String Cnf_idcampania ;
     public static String Cnf_CampaniaNombre ;
     public static String Cnf_factorbusqueda;
+    public static String cnf_fechacargaruta;
+
+    public static String getCnf_fechacargaruta() {
+        return cnf_fechacargaruta;
+    }
+
+    public static void setCnf_fechacargaruta(String cnf_fechacargaruta) {
+        ConfiguracionSession.cnf_fechacargaruta = cnf_fechacargaruta;
+    }
 
     public static String getCnf_idAccount() {
         return Cnf_idAccount;

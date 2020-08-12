@@ -30,7 +30,8 @@ public class Engine_util {
                     actualconf.setId_cuenta(c.getString(1));
                     actualconf.setId_campania(c.getString(2));
                     actualconf.setFormaBusqueda(c.getString(3));
-                    actualconf.setEstado(c.getString(4));
+                    actualconf.setEstado(c.getString(5));
+                    actualconf.setFechacargaruta(c.getString(4));
                     Cursor AccountCanpa = usdbh.ConfiguracionCanpania(actualconf.getId_cuenta(),actualconf.getId_campania());
                     if(AccountCanpa!=null) {
                         if (AccountCanpa.moveToFirst()) {
@@ -46,6 +47,7 @@ public class Engine_util {
                                 objconfiguracionSession.setCnf_AccountNombre(objcampania.getAccountNombre());
                                 objconfiguracionSession.setCnf_CampaniaNombre(objcampania.getCampaniaNombre());
                                 objconfiguracionSession.setCnf_factorbusqueda(actualconf.getFormaBusqueda());
+                                objconfiguracionSession.setCnf_fechacargaruta(actualconf.getFechacargaruta());
 
                             } while (AccountCanpa.moveToNext());
                         }

@@ -64,7 +64,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class principal extends AppCompatActivity {
@@ -247,8 +249,21 @@ public class principal extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             } else {
-                txtnombrecampania.setText(objconfiguracionSession.getCnf_CampaniaNombre().toString());
-                ListarRutasEngine();
+
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String formattedDate = df.format(c.getTime());
+                if(!formattedDate.equals(objconfiguracionSession.getCnf_fechacargaruta())){
+                    Toast.makeText(getApplication(),
+                            "Cargar su ruta "+formattedDate+ " ..!!!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, configuracion.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    txtnombrecampania.setText(objconfiguracionSession.getCnf_CampaniaNombre().toString());
+                    ListarRutasEngine();
+                }
 
             }
         } else {

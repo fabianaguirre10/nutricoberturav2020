@@ -11,6 +11,7 @@ public class Capania {
     public String IdCampania;
     public String CampaniaNombre ;
 
+
     public String getID() {
         return ID;
     }

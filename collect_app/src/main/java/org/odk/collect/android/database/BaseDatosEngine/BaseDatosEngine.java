@@ -43,6 +43,7 @@ public class BaseDatosEngine {
         String EstadoFormulario = "EstadoFormulario";
         String Producto = "Producto";
         String Operacion = "Operacion";
+        String Promo="Promo";
     }
 
     private static class DatabaseHelperEngine extends SQLiteOpenHelper {
@@ -150,6 +151,7 @@ public class BaseDatosEngine {
                     EstructuraBD.ColumnasConfiguracion.Id_cuenta + " text," +
                     EstructuraBD.ColumnasConfiguracion.Id_campania + " text," +
                     EstructuraBD.ColumnasConfiguracion.FormaBusqueda + " text," +
+                    EstructuraBD.ColumnasConfiguracion.FechaCarga + " text," +
                     EstructuraBD.ColumnasConfiguracion.Estado + " text" +
                     ")";
             db.execSQL(query);
@@ -183,6 +185,13 @@ public class BaseDatosEngine {
                     EstructuraBD.ColumnasOperaciones.estado + " text" +
                     ")";
             db.execSQL(query);
+            query = "create table " + Tablas.Promo + "(_ID integer primary key," +
+                    EstructuraBD.ColumnasPromo.idMae + " int," +
+                    EstructuraBD.ColumnasPromo.descripcion + " text," +
+                    EstructuraBD.ColumnasPromo.cantidad + " int," +
+                    EstructuraBD.ColumnasPromo.idproductopromo + " int" +
+                    ")";
+            db.execSQL(query);
 
 
 
@@ -202,6 +211,7 @@ public class BaseDatosEngine {
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Configuracion);
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Producto);
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Operacion);
+            db.execSQL("DROP TABLE IF EXISTS " + Tablas.Promo);
             if(newVersion==44){
                 onCreate(db);
             }
@@ -274,7 +284,28 @@ public class BaseDatosEngine {
                     ",'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.Id_cuenta) + "',"
                     + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.Id_campania) + "',"
                     + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.FormaBusqueda) + "',"
+                    + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.FechaCarga) + "',"
                     + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.Estado) + "')";
+            db.execSQL(query);
+            //idUsuario = (int) db.insert(Tablas.CampaniaCuentas, null, values);
+            //CerrarBase(db);
+            //listar();
+            return true;
+        } catch (Exception ex) {
+            CerrarBase(db);
+            return false;
+        }
+    }
+    public boolean insertardatosPromo(ContentValues values) {
+
+        int idUsuario;
+        try {
+            String query = "insert into " + Tablas.Promo + " values (" +
+                    values.getAsString("ID") +
+                    ",'" + values.getAsString(EstructuraBD.ColumnasPromo.idMae) + "',"
+                    + "'" + values.getAsString(EstructuraBD.ColumnasPromo.descripcion) + "',"
+                    + "'" + values.getAsString(EstructuraBD.ColumnasPromo.cantidad) + "',"
+                    + "'" + values.getAsString(EstructuraBD.ColumnasPromo.idproductopromo) + "')";
             db.execSQL(query);
             //idUsuario = (int) db.insert(Tablas.CampaniaCuentas, null, values);
             //CerrarBase(db);
@@ -834,6 +865,18 @@ public class BaseDatosEngine {
             return false;
         }
     }
+
+    public boolean ActualizarTablaStockpromociones(int cantidad,int idproducto) {
+        int idUsuario;
+        try {
+            db.execSQL("UPDATE "+ Tablas.Producto +" SET stock=stock- "+cantidad+" WHERE _id="+idproducto);            //CerrarBase(db);
+            //listar();
+            return true;
+        } catch (Exception ex) {
+            CerrarBase(db);
+            return false;
+        }
+    }
     public boolean EliminarRegistros() {
 
         int idUsuario;
@@ -852,6 +895,19 @@ public class BaseDatosEngine {
         int idUsuario;
         try {
             idUsuario = (int) db.delete(Tablas.Producto, null, null);
+            //CerrarBase(db);
+            //listar();
+            return true;
+        } catch (Exception ex) {
+            CerrarBase(db);
+            return false;
+        }
+    }
+    public boolean EliminarRegistrosProductosPromo() {
+
+        int idUsuario;
+        try {
+            idUsuario = (int) db.delete(Tablas.Promo, null, null);
             //CerrarBase(db);
             //listar();
             return true;
@@ -887,6 +943,24 @@ public class BaseDatosEngine {
                 } while (c.moveToNext());
 
                 }
+        } catch (Exception ex) {
+            String a = ex.getMessage();
+        }
+        return c;
+    }
+    public Cursor listarProductoPromo(String[] argumentos, String op, String where) {
+        Cursor c = null;
+        try {
+            String query = "";
+            query = "select * from " + Tablas.Promo + "  " + where ;
+            //db.execSQL(query);
+            c = db.rawQuery(query, null);
+            if (c.moveToFirst()) {
+                //Recorremos el cursor hasta que no haya más registros
+                do {
+                } while (c.moveToNext());
+
+            }
         } catch (Exception ex) {
             String a = ex.getMessage();
         }

@@ -6,6 +6,12 @@ package org.odk.collect.android.database.BaseDatosEngine;
 import java.util.UUID;
 
 public class EstructuraBD {
+
+
+    public static class CabeceraPromo implements ColumnasPromo{
+
+    };
+
     public interface ColumnasEngine {
         String ID = "id";
         String idbranch = "idbranch";
@@ -189,6 +195,7 @@ public class EstructuraBD {
         String Id_campania="Id_campania";
         String FormaBusqueda="FormaBusqueda";
         String Estado="Estado";
+        String FechaCarga="FechaCarga";
     }
     public static class CabeceraConfiguracion implements ColumnasConfiguracion {
         public static String generarIdCabeceraPedido() {
@@ -265,6 +272,14 @@ public class EstructuraBD {
         }
 
     }
+
+    interface ColumnasPromo{
+        String idMae="idMae";
+        String descripcion="descripcion";
+        String cantidad="cantidad";
+        String idproductopromo="idproductopromo";
+    }
+
 
 
 }

@@ -1,11 +1,13 @@
 package org.odk.collect.android.activities;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
@@ -26,10 +28,12 @@ import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -56,7 +60,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class configuracion extends AppCompatActivity {
@@ -78,6 +86,7 @@ public class configuracion extends AppCompatActivity {
         cmbcuentacamp=(Spinner) findViewById(R.id.cmbcampaniaCL);
         Button btnCargarCodigosCL=(Button)findViewById(R.id.btncargarlocalesCL);
         Button btncargarlocalcuenta=(Button)findViewById(R.id.btncargarlocalcuenta);
+        Button btnjustificar=(Button)findViewById(R.id.btnjustificar);
         radnombre = (RadioButton) findViewById(R.id.radnombre);
         radcodigo = (RadioButton) findViewById(R.id.radcodigo);
         TextView idtext =(TextView) findViewById(R.id.textid);
@@ -85,6 +94,14 @@ public class configuracion extends AppCompatActivity {
         TextView TextversionImeid = (TextView) findViewById(R.id.txtIdVersionDivice);
         ImageButton copibutton = (ImageButton) findViewById(R.id.IdbtnCopi);
         TextversionImeid.setText(obterImeid());
+        btnjustificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               alertDialogDemo();
+
+            }
+        });
         copibutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -200,7 +217,14 @@ public class configuracion extends AppCompatActivity {
                         usdbh.EliminarRegistros();
                         usdbh.EliminarRegistrosCodigos();
                         usdbh.EliminarRegistrosProductos();
-                        usdbh.EliminarRegistrosProductosOrde();
+                        usdbh.EliminarRegistrosProductosPromo();
+                        Calendar c = Calendar.getInstance();
+                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                        String formattedDate = df.format(c.getTime());
+                        if(!formattedDate.equals(objconfiguracionSession.getCnf_fechacargaruta())){
+                            usdbh.EliminarRegistrosProductosOrde();
+                        }
+
                         usdbh.close();
                         CargarLocales fetchJsonTask = new CargarLocales(v.getContext());
                         fetchJsonTask.execute();
@@ -217,7 +241,46 @@ public class configuracion extends AppCompatActivity {
 
         });
     }
+    void alertDialogDemo() {
+        // get alert_dialog.xml view
+        LayoutInflater li = LayoutInflater.from(this);
+        View promptsView = li.inflate(R.layout.alert_dialog, null);
 
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set alert_dialog.xml to alertdialog builder
+        alertDialogBuilder.setView(promptsView);
+
+        final EditText userInput = (EditText) promptsView.findViewById(R.id.etUserInput);
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
+                    public void onClick(DialogInterface dialog, int id) {
+                        // get user input and set it to result
+                        // edit text
+                        String[] myTaskParams = { userInput.getText().toString(),obterImeid()};
+                        enviojustificacion fetchJsonTask = new enviojustificacion();
+                        fetchJsonTask.execute(myTaskParams);
+                        Toast.makeText(getApplicationContext(), "Entered: "+userInput.getText().toString(), Toast.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
     public void CargarListacuenta(){
         BaseDatosEngine usdbh = new BaseDatosEngine();
         usdbh = usdbh.open();
@@ -553,6 +616,7 @@ public class configuracion extends AppCompatActivity {
             progress.setProgress(0);
             progress.setMax(respJSON.length());
             progress.show();
+
             final int totalProgressTime = respJSON.length();
 
             final Thread t = new Thread() {
@@ -560,8 +624,9 @@ public class configuracion extends AppCompatActivity {
                 public void run() {
                     int jumpTime = 0;
                     while(jumpTime < totalProgressTime) {
-
+                        String formattedDate="";
                         try {
+
                             JSONObject obj = respJSON.getJSONObject(jumpTime);
                             String id = obj.getString("id");
                             String idAccount = obj.getString("idAccount");
@@ -599,12 +664,21 @@ public class configuracion extends AppCompatActivity {
                                     Estado="C";
 
                                 }
+                                Calendar c = Calendar.getInstance();
+                                System.out.println("Current time => "+c.getTime());
+
+                                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                                 formattedDate = df.format(c.getTime());
+                                // formattedDate have current date/time
+
+
                                 usdbh = usdbh.open();
                                 usdbh.EliminarRegistrosConfiguracion();
                                 ContentValues Objdatos = new ContentValues();
                                 Objdatos.put(EstructuraBD.CabeceraConfiguracion.Id_cuenta, idAccount);
                                 Objdatos.put(EstructuraBD.CabeceraConfiguracion.Id_campania, objcuentaSession.getCu_idcampania());
                                 Objdatos.put(EstructuraBD.CabeceraConfiguracion.FormaBusqueda,Estado );
+                                Objdatos.put(EstructuraBD.CabeceraConfiguracion.FechaCarga,formattedDate );
                                 Objdatos.put(EstructuraBD.CabeceraConfiguracion.Estado, "A");
                                 usdbh.insertardatosConfiguracion(Objdatos);
                                 usdbh.close();
@@ -650,10 +724,14 @@ public class configuracion extends AppCompatActivity {
                             e1.printStackTrace();
                         }
                     }
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    String formattedDate = df.format(c.getTime());
                     objconfiguracionSession.setCnf_idAccount(objcuentaSession.getCu_idAccount());
                     objconfiguracionSession.setCnf_idcampania(objcuentaSession.getCu_idcampania());
                     objconfiguracionSession.setCnf_AccountNombre(objcuentaSession.getCu_AccountNombre());
                     objconfiguracionSession.setCnf_CampaniaNombre(objcuentaSession.getCu_CampaniaNombre());
+                    objconfiguracionSession.setCnf_fechacargaruta(formattedDate);
                     objconfiguracionSession.setCnf_factorbusqueda(Estado);
 
 
@@ -798,10 +876,31 @@ public class configuracion extends AppCompatActivity {
                             String price = obj.getString("price");
                             String priceIVA = obj.getString("priceIVA");
                             String iva = obj.getString("iva");
+                            BaseDatosEngine usdbh = new BaseDatosEngine();
+
+                            JSONArray promocion = new JSONArray();
+                            promocion=obj.getJSONArray("promo");
+                            int index=0;
+                            while (index<promocion.length()){
+                                JSONObject objpromo = promocion.getJSONObject(index);
+                                String idmaestro=objpromo.getString("idMae");
+                                String descripcion=objpromo.getString("descripcion");
+                                String cantidad=objpromo.getString("cantidad");
+
+                                ContentValues Objdatospromo = new ContentValues();
+                                Objdatospromo.put(EstructuraBD.CabeceraPromo.idMae, idmaestro);
+                                Objdatospromo.put(EstructuraBD.CabeceraPromo.descripcion, descripcion);
+                                Objdatospromo.put(EstructuraBD.CabeceraPromo.cantidad, cantidad);
+                                Objdatospromo.put(EstructuraBD.CabeceraPromo.idproductopromo, id_mae);
+                                usdbh = usdbh.open();
+                                usdbh.insertardatosPromo(Objdatospromo);
+                                usdbh.close();
+                                index++;
+                            }
+
 
                             //censo
                             //String ESTADOAGGREGATE="S";
-                            BaseDatosEngine usdbh = new BaseDatosEngine();
 
 
                             try {
