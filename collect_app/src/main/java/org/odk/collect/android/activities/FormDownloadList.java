@@ -34,6 +34,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.odk.collect.android.R;
 import org.odk.collect.android.activities.viewmodels.FormDownloadListViewModel;
@@ -265,7 +266,7 @@ public class FormDownloadList extends FormListActivity implements FormListDownlo
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setItemsCanFocus(false);
 
-        sortingOptions = new int[] {
+        sortingOptions = new int[]{
                 R.string.sort_by_name_asc, R.string.sort_by_name_desc
         };
     }
@@ -604,13 +605,13 @@ public class FormDownloadList extends FormListActivity implements FormListDownlo
             if (viewModel.isDownloadOnlyMode()) {
                 //1. First check if all form IDS could be found on the server - Register forms that could not be found
 
-                for (String formId: viewModel.getFormIdsToDownload()) {
+                for (String formId : viewModel.getFormIdsToDownload()) {
                     viewModel.putFormResult(formId, false);
                 }
 
-                ArrayList<FormDetails> filesToDownload  = new ArrayList<>();
+                ArrayList<FormDetails> filesToDownload = new ArrayList<>();
 
-                for (FormDetails formDetails: viewModel.getFormNamesAndURLs().values()) {
+                for (FormDetails formDetails : viewModel.getFormNamesAndURLs().values()) {
                     String formId = formDetails.getFormID();
 
                     if (viewModel.getFormResults().containsKey(formId)) {
@@ -630,6 +631,11 @@ public class FormDownloadList extends FormListActivity implements FormListDownlo
             }
         }
     }
+
+
+
+
+
 
     /**
      * Creates an alert dialog with the given tite and message. If shouldExit is set to true, the
@@ -705,8 +711,81 @@ public class FormDownloadList extends FormListActivity implements FormListDownlo
         viewModel.setProgressDialogShowing(true);
         DialogUtils.showDialog(progressDialog, this);
     }
+    public    FormListDownloaderListener form = new FormListDownloaderListener() {
+        @Override
+        public void formListDownloadingComplete(HashMap<String, FormDetails> result  ) {
 
-    private void createAuthDialog() {
+
+            ArrayList<FormDetails> filesToDownloadC = new ArrayList<FormDetails>();
+            downloadFormListTask.setDownloaderListener(null);
+            downloadFormListTask = null;
+
+            if (result == null) {
+                Timber.e("Formlist Downloading returned null.  That shouldn't happen");
+                // Just displayes "error occured" to the user, but this should never happen.
+                if (viewModel.isDownloadOnlyMode()) {
+                    setReturnResult(false, "Formlist Downloading returned null.  That shouldn't happen", null);
+                }
+
+
+                return;
+            }
+
+            if (result.containsKey(DL_AUTH_REQUIRED)) {
+                // need authorization
+                createAuthDialog();
+            } else if (result.containsKey(DL_ERROR_MSG)) {
+                // Download failed
+                String dialogMessage =
+                        getString(R.string.list_failed_with_error,
+                                result.get(DL_ERROR_MSG).getErrorStr());
+                String dialogTitle = getString(R.string.load_remote_form_error);
+
+                if (viewModel.isDownloadOnlyMode()) {
+                    setReturnResult(false, getString(R.string.load_remote_form_error), viewModel.getFormResults());
+                }
+
+            } else {
+                // Everything worked. Clear the list and add the results.
+                viewModel.setFormNamesAndURLs(result);
+
+                //     viewModel.clearFormList();
+                boolean successDo = false;
+                String IdForm="Nutri_Prospecciones_20200616";
+                ArrayList<String> ids = new ArrayList<String>(viewModel.getFormNamesAndURLs().keySet());
+                for (int i = 0; i < result.size(); i++) {
+
+                    if (IdForm.toUpperCase().contains(ids.get(i).toUpperCase())) {
+                        successDo = true;
+                        String formDetailsKey = ids.get(i);
+                        FormDetails details = viewModel.getFormNamesAndURLs().get(formDetailsKey);
+
+                        if (isLocalFormSuperseded(ids.get(i))) {
+                            filesToDownloadC.add(details);
+                        }
+                    }
+                }
+                if (successDo == true) {
+                    if (filesToDownloadC.size() > 0) {
+                        startFormsDownload(filesToDownloadC);
+                    }
+                    // Cuando va a cargar ruta
+                    ///  GetRouteChariot();
+                } else {
+
+                    Toast.makeText(getApplication(),
+                            "No se encuentra configurado ningún formulario para este levantamiento", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }
+    };
+
+
+
+
+
+        private void createAuthDialog() {
         viewModel.setAlertShowing(false);
 
         AuthDialogUtility authDialogUtility = new AuthDialogUtility();

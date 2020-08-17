@@ -108,6 +108,7 @@ public class principal extends AppCompatActivity {
         txtbuscar = (EditText) findViewById(R.id.txtcodbusqueda);
         EstadoEditar ed= new EstadoEditar();
         ed.setEstadoEdit("1");
+        objconfiguracionSession.setCnf_imei(obterImeid());
         objutil= new Engine_util();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         adminPreferences = this.getSharedPreferences(

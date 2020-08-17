@@ -10,7 +10,15 @@ public class Capania {
     public String AccountNombre;
     public String IdCampania;
     public String CampaniaNombre ;
+    public String Formularios ;
 
+    public String getFormularios() {
+        return Formularios;
+    }
+
+    public void setFormularios(String formularios) {
+        Formularios = formularios;
+    }
 
     public String getID() {
         return ID;

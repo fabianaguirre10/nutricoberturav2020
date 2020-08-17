@@ -11,6 +11,33 @@ public class ConfiguracionSession {
     public static String Cnf_CampaniaNombre ;
     public static String Cnf_factorbusqueda;
     public static String cnf_fechacargaruta;
+    public static String Cnf_imei;
+    public static String Cnf_batteryStatus ;
+    public static String Cnf_formularios;
+
+    public static String getCnf_imei() {
+        return Cnf_imei;
+    }
+
+    public static String getCnf_formularios() {
+        return Cnf_formularios;
+    }
+
+    public static void setCnf_formularios(String cnf_formularios) {
+        Cnf_formularios = cnf_formularios;
+    }
+
+    public static void setCnf_imei(String cnf_imei) {
+        Cnf_imei = cnf_imei;
+    }
+
+    public static String getCnf_batteryStatus() {
+        return Cnf_batteryStatus;
+    }
+
+    public static void setCnf_batteryStatus(String cnf_batteryStatus) {
+        Cnf_batteryStatus = cnf_batteryStatus;
+    }
 
     public static String getCnf_fechacargaruta() {
         return cnf_fechacargaruta;

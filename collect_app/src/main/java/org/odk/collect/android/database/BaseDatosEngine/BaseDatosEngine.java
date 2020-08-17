@@ -96,7 +96,8 @@ public class BaseDatosEngine {
                     ColumnasCampanias.idAccount + " text," +
                     ColumnasCampanias.AccountNombre + " text," +
                     ColumnasCampanias.IdCampania + " text," +
-                    ColumnasCampanias.CampaniaNombre + " text" +
+                    ColumnasCampanias.CampaniaNombre  + " text," +
+                    ColumnasCampanias.Idform + " text" +
                     ")";
             db.execSQL(query);
             query = "create table " + Tablas.Povince + "(_ID integer primary key," +
@@ -151,8 +152,8 @@ public class BaseDatosEngine {
                     EstructuraBD.ColumnasConfiguracion.Id_cuenta + " text," +
                     EstructuraBD.ColumnasConfiguracion.Id_campania + " text," +
                     EstructuraBD.ColumnasConfiguracion.FormaBusqueda + " text," +
-                    EstructuraBD.ColumnasConfiguracion.FechaCarga + " text," +
-                    EstructuraBD.ColumnasConfiguracion.Estado + " text" +
+                    EstructuraBD.ColumnasConfiguracion.Estado + " text," +
+                    EstructuraBD.ColumnasConfiguracion.Formularios + " text" +
                     ")";
             db.execSQL(query);
             query = "create table " + Tablas.Producto + "(_" +
@@ -468,7 +469,8 @@ public class BaseDatosEngine {
                     ",'" + values.getAsString(ColumnasCampanias.idAccount) + "',"
                     + "'" + values.getAsString(ColumnasCampanias.AccountNombre) + "',"
                     + "'" + values.getAsString(ColumnasCampanias.IdCampania) + "',"
-                    + "'" + values.getAsString(ColumnasCampanias.CampaniaNombre) + "')";
+                    + "'" + values.getAsString(ColumnasCampanias.CampaniaNombre) + "',"
+                    + "'" + values.getAsString(ColumnasCampanias.Idform) + "')";
             db.execSQL(query);
             //idUsuario = (int) db.insert(Tablas.CampaniaCuentas, null, values);
             //CerrarBase(db);

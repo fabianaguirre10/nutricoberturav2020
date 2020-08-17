@@ -10,6 +10,15 @@ public class CuentaSession {
     public static String Cu_AccountNombre;
     public static String Cu_idcampania ;
     public static String Cu_CampaniaNombre ;
+    public static String Cu_Formularios ;
+
+    public static String getCu_Formularios() {
+        return Cu_Formularios;
+    }
+
+    public static void setCu_Formularios(String cu_Formularios) {
+        Cu_Formularios = cu_Formularios;
+    }
 
     public static String getCu_ID() {
         return Cu_ID;

@@ -64,6 +64,7 @@ import com.google.zxing.integration.android.IntentResult;
 import org.apache.commons.io.IOUtils;
 import org.javarosa.core.model.FormDef;
 import org.javarosa.core.model.FormIndex;
+import org.javarosa.core.model.data.DateTimeData;
 import org.javarosa.core.model.data.IAnswerData;
 import org.javarosa.core.model.instance.TreeElement;
 import org.javarosa.form.api.FormEntryCaption;
@@ -87,6 +88,7 @@ import org.odk.collect.android.database.BaseDatosEngine.Entidades.BranchDevoluci
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.BranchProducto;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.BranchSession;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.CodigoSession;
+import org.odk.collect.android.database.BaseDatosEngine.Entidades.ConfiguracionSession;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.EstadoFormularioSession;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.EstadosFormulario;
 import org.odk.collect.android.database.BaseDatosEngine.Entidades.Producto;
@@ -157,6 +159,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -2873,14 +2876,39 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                 formController.getAuditEventLogger().logEvent(AuditEvent.AuditEventType.FORM_SAVE, false);
                 cambiarestado(codigobranch,uri);
                 gurdarenviarformulariopartes(uri,"Completo");
-
+                Double taskTime=-1.0;
                 cambiarestado(codigobranch,uri);
                 Activos activos= new Activos();
                 mapa mapal= new mapa();
 
+                FormDef formDef = Collect.getInstance().getFormController().getFormDef();
+                try {
+
+                    TreeElement rootElement = formDef.getInstance().getRoot();
+                    List<TreeElement> Treestart= rootElement.getChildrenWithName("start");
+                    DateTimeData DataStart =(DateTimeData) Treestart.get(0).getValue();
+                    Date start=new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(DataStart.getDisplayText());
+
+                    List<TreeElement> Treeend= rootElement.getChildrenWithName("end");
+                    DateTimeData Dataend =(DateTimeData) Treeend.get(0).getValue();
+                    Date end=new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(Dataend.getDisplayText());
+                    long differenceInMillis=end.getTime()- start.getTime();
+                    long Time= (differenceInMillis)/60000;
+                    DecimalFormat twoDForm = new DecimalFormat("#.##");
+                    taskTime = Double.valueOf(twoDForm.format(Time));
+                }catch (Exception E) {
+
+                }
+                ConfiguracionSession objconfiguracionSession = new ConfiguracionSession();
+                String[] myTaskParams = { objconfiguracionSession.getCnf_imei(),objconfiguracionSession.getCnf_CampaniaNombre(),objFormularios.getE_code(),uri,"Finalizado",taskTime.toString()};
+                updatestatus fetchJsonTask = new updatestatus();
+                fetchJsonTask.execute(myTaskParams);
+
+
                 String formId = getFormController().getFormDef().getMainInstance().getRoot().getAttributeValue("", "id");
                 if (AutoSendWorker.formShouldBeAutoSent(formId, GeneralSharedPreferences.isAutoSendEnabled())) {
                     requestAutoSend();
+
                 } else {
                     // Force writing of audit since we are exiting
                     formController.getAuditEventLogger().logEvent(AuditEvent.AuditEventType.FORM_EXIT, true);

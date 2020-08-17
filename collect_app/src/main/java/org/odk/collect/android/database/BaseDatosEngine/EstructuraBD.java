@@ -67,6 +67,7 @@ public class EstructuraBD {
         String AccountNombre = "AccountNombre";
         String IdCampania = "IdCampania";
         String CampaniaNombre = "CampaniaNombre";
+        String Idform = "Idform";
     }
     public static class CabecerasCampanias implements ColumnasCampanias {
         public static String generarIdCabeceraPedido() {
@@ -195,6 +196,7 @@ public class EstructuraBD {
         String Id_campania="Id_campania";
         String FormaBusqueda="FormaBusqueda";
         String Estado="Estado";
+        String Formularios="Formularios";
         String FechaCarga="FechaCarga";
     }
     public static class CabeceraConfiguracion implements ColumnasConfiguracion {
