@@ -86,6 +86,7 @@ import org.odk.collect.android.utilities.ToastUtils;
 import org.odk.collect.android.utilities.WebCredentialsUtils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -175,7 +176,7 @@ public class configuracion extends  AppCompatActivity implements
         }
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         createLocationRequest();
-
+        deleteCache(this);
 
         viewModel = ViewModelProviders.of(this).get(FormDownloadListViewModel.class);
 
@@ -350,7 +351,7 @@ public class configuracion extends  AppCompatActivity implements
                             Utils.setRequestingLocationUpdates(v.getContext(), false);
                             e.printStackTrace();
                         }
-                        objcuentaSession.setCu_Formularios("Nutri_Prospecciones_20200616");
+
                         if(!objcuentaSession.getCu_Formularios().equals("")){
                             downloadFormList();
                             CargarLocales fetchJsonTask = new CargarLocales(v.getContext());
@@ -396,7 +397,28 @@ public class configuracion extends  AppCompatActivity implements
         alert = builder.create();
         alert.show();
     }
-
+    public static void deleteCache(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            deleteDir(dir);
+        } catch (Exception e) { e.printStackTrace();}
+    }
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if(dir!= null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
+        }
+    }
     private boolean isLocationEnabled() {
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
@@ -460,6 +482,7 @@ public class configuracion extends  AppCompatActivity implements
                     objcampania.setAccountNombre(cursor.getString(2));
                     objcampania.setIdCampania(cursor.getString(3));
                     objcampania.setCampaniaNombre(cursor.getString(4));
+                    objcampania.setFormularios(cursor.getString(5));
 
                     listOBJ.add(objcampania);
 

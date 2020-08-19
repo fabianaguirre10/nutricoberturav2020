@@ -483,7 +483,7 @@ public class BaseDatosEngine {
     }
 
     public Cursor listarCanpanias() {
-        String[] campos = new String[]{"_ID", ColumnasCampanias.idAccount, ColumnasCampanias.AccountNombre, ColumnasCampanias.IdCampania, ColumnasCampanias.CampaniaNombre};
+        String[] campos = new String[]{"_ID", ColumnasCampanias.idAccount, ColumnasCampanias.AccountNombre, ColumnasCampanias.IdCampania, ColumnasCampanias.CampaniaNombre,ColumnasCampanias.Idform};
 
         Cursor c = null;
         String[] args = new String[]{""};

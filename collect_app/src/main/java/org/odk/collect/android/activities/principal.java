@@ -102,6 +102,7 @@ public class principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         txtnombrecampania = (TextView) findViewById(R.id.txnombrecampania);
         objseccion.setE_imei(obterImeid());
         cmbnumeroruta = (Spinner) findViewById(R.id.cmbnumeroruta);

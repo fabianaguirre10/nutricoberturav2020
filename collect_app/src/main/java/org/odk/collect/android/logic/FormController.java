@@ -1390,7 +1390,7 @@ public class FormController {
                         respuesta.setValue(Integer.valueOf((int) bp.getE_stock()));
                         IAnswerData iAnswerData = (IAnswerData) respuesta;
                         sku_stock.get(0).setValue(iAnswerData);
-                        if (bp.getE_stock() == 0) {
+                        if (bp.getE_stock() <= 0  ) {
                             q_compra.removeChildren("stock_" + bp.getE_codproducto());
                         } else {
                             sku_stock.get(0).clearChildrenCaches();
