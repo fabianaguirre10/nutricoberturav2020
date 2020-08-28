@@ -746,7 +746,7 @@ public class configuracion extends  AppCompatActivity implements
                 // Construct the URL somehow
                 String Idaccount = objcuentaSession.getCu_idAccount();
                 String Idcampania = "";
-                String url1 = "http://geomardis6728.cloudapp.net/msBGE/api/Task?idAccount=" + Idaccount + "&Imeid=" + obterImeid();
+                String url1 = "http://geomardis6728.cloudapp.net/Msnutri/api/Task?idAccount=" + Idaccount + "&Imeid=" + obterImeid();
                 URL url = new URL(url1);
 
                 // Create the request to MuslimSalat.com, and open the connection
@@ -844,6 +844,13 @@ public class configuracion extends  AppCompatActivity implements
                             String TypeBusiness = obj.getString("typeBusiness");
                             String cedula = obj.getString("cedula");
                             //storeaudit
+                            String TiempoEcuesta = obj.getString("timeLastTask");
+                            String Fecchaultimavisita=obj.getString("fechaVisita").replace("T"," ");
+                            String startDate = obj.getString("fechaVisitaInicio").replace("T"," ");;//"2013-03-26"
+
+
+
+
                             String ESTADOAGGREGATE = obj.getString("estadoaggregate");
                             String Link = obj.getString("link");
                             //censo
@@ -914,6 +921,11 @@ public class configuracion extends  AppCompatActivity implements
                                 objruta.setCampaign(objcuentaSession.getCu_CampaniaNombre());
                                 objruta.setGeoLength(Double.valueOf(LenghtBranch));
                                 objruta.setGeolatitude(Double.valueOf(LatitudeBranch));
+                                objruta.set_dateexec(Fecchaultimavisita);
+                                objruta.setStartDate(startDate);
+                                objruta.set_timetaks(Double.valueOf(TiempoEcuesta.equals("null")?"0":TiempoEcuesta));
+                                objruta.setGeolatitude(Double.valueOf(LatitudeBranch));
+
                                 objenviarrutassuper.add(objruta);
 
                                 usdbh.insertardatos(Objdatos);
@@ -1441,53 +1453,53 @@ public class configuracion extends  AppCompatActivity implements
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     private void requestPermissions() {
 
-        boolean permissionAccessFineLocationApproved =
-                ActivityCompat.checkSelfPermission(
-                        this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED;
+     boolean permissionAccessFineLocationApproved =
+     ActivityCompat.checkSelfPermission(
+     this, Manifest.permission.ACCESS_FINE_LOCATION)
+     == PackageManager.PERMISSION_GRANTED;
 
-        boolean backgroundLocationPermissionApproved =
-                ActivityCompat.checkSelfPermission(
-                        this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED;
+     boolean backgroundLocationPermissionApproved =
+     ActivityCompat.checkSelfPermission(
+     this, Manifest.permission.ACCESS_FINE_LOCATION)
+     == PackageManager.PERMISSION_GRANTED;
 
-        boolean shouldProvideRationale =
-                permissionAccessFineLocationApproved && backgroundLocationPermissionApproved;
+     boolean shouldProvideRationale =
+     permissionAccessFineLocationApproved && backgroundLocationPermissionApproved;
 
-        // Provide an additional rationale to the user. This would happen if the user denied the
-        // request previously, but didn't check the "Don't ask again" checkbox.
-        if (shouldProvideRationale) {
-            Log.i(TAG, "Displaying permission rationale to provide additional context.");
-            Snackbar.make(
-                    findViewById(R.id.activity_main),
-                    R.string.permission_rationale,
-                    Snackbar.LENGTH_INDEFINITE)
-                    .setAction(R.string.ok, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            // Request permission
-                            ActivityCompat.requestPermissions(configuracion.this,
-                                    new String[] {
-                                            Manifest.permission.ACCESS_FINE_LOCATION,
-                                            Manifest.permission.ACCESS_FINE_LOCATION },
-                                    REQUEST_PERMISSIONS_REQUEST_CODE);
-                        }
-                    })
-                    .show();
-        } else {
-            Log.i(TAG, "Requesting permission");
-            // Request permission. It's possible this can be auto answered if device policy
-            // sets the permission in a given state or the user denied the permission
-            // previously and checked "Never ask again".
-            ActivityCompat.requestPermissions(configuracion.this,
-                    new String[] {
-                            Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.ACCESS_FINE_LOCATION },
-                    REQUEST_PERMISSIONS_REQUEST_CODE);
-        }
+     // Provide an additional rationale to the user. This would happen if the user denied the
+     // request previously, but didn't check the "Don't ask again" checkbox.
+     if (shouldProvideRationale) {
+     Log.i(TAG, "Displaying permission rationale to provide additional context.");
+     Snackbar.make(
+     findViewById(R.id.activity_main),
+     R.string.permission_rationale,
+     Snackbar.LENGTH_INDEFINITE)
+     .setAction(R.string.ok, new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+    // Request permission
+    ActivityCompat.requestPermissions(configuracion.this,
+    new String[] {
+    Manifest.permission.ACCESS_FINE_LOCATION,
+    Manifest.permission.ACCESS_FINE_LOCATION },
+    REQUEST_PERMISSIONS_REQUEST_CODE);
     }
+    })
+     .show();
+     } else {
+     Log.i(TAG, "Requesting permission");
+     // Request permission. It's possible this can be auto answered if device policy
+     // sets the permission in a given state or the user denied the permission
+     // previously and checked "Never ask again".
+     ActivityCompat.requestPermissions(configuracion.this,
+     new String[] {
+     Manifest.permission.ACCESS_FINE_LOCATION,
+     Manifest.permission.ACCESS_FINE_LOCATION },
+     REQUEST_PERMISSIONS_REQUEST_CODE);
+     }
+     }
 
-    /**
+     /**
      * Callback received when a permissions request has been completed.
      */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)

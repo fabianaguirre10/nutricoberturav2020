@@ -28,6 +28,8 @@ public class updatestatus extends AsyncTask<String, Void, Void> {
             postData.addProperty("AggregateUri", params[3]);
             postData.addProperty("Status", params[4]);
             postData.addProperty("TimeTask",Double.valueOf(params[5]));
+            postData.addProperty("Start ", params[6]);
+            postData.addProperty("End", params[7]);
             userlog _Userlog= new userlog();
 
 

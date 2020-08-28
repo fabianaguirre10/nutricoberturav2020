@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: android.arch.work:work-runtime:1.0.0-alpha10@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/35e20c08e696ee8333d076724a84b3ed/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/35e20c08e696ee8333d076724a84b3ed/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/015f5e497627e39d1c37480b926d549d/jetified-work-runtime-1.0.0-alpha10/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/015f5e497627e39d1c37480b926d549d/jetified-work-runtime-1.0.0-alpha10/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/android.arch.work/work-runtime/1.0.0-alpha10/6c947735509999f4eee4b6a0a26701fd6f28c667/work-runtime-1.0.0-alpha10-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/android.arch.work/work-runtime/1.0.0-alpha10/6c947735509999f4eee4b6a0a26701fd6f28c667/work-runtime-1.0.0-alpha10-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

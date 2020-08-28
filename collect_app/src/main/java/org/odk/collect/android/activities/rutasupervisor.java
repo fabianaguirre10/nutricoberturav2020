@@ -10,6 +10,35 @@ public class rutasupervisor {
     public String campaign;
     public double GeoLength;
     public double Geolatitude;
+    public String startDate;
+
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    double _timetaks ;
+    String _dateexec;
+
+    public double get_timetaks() {
+        return _timetaks;
+    }
+
+    public void set_timetaks(double _timetaks) {
+        this._timetaks = _timetaks;
+    }
+
+    public String get_dateexec() {
+        return _dateexec;
+    }
+
+    public void set_dateexec(String _dateexec) {
+        this._dateexec = _dateexec;
+    }
 
     public String getCodeBranch() {
         return CodeBranch;

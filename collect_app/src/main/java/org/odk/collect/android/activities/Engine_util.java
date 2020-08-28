@@ -30,8 +30,8 @@ public class Engine_util {
                     actualconf.setId_cuenta(c.getString(1));
                     actualconf.setId_campania(c.getString(2));
                     actualconf.setFormaBusqueda(c.getString(3));
-                    actualconf.setEstado(c.getString(5));
-                    actualconf.setFechacargaruta(c.getString(4));
+                    actualconf.setEstado(c.getString(4));
+                    actualconf.setFechacargaruta(c.getString(5));
                     Cursor AccountCanpa = usdbh.ConfiguracionCanpania(actualconf.getId_cuenta(),actualconf.getId_campania());
                     if(AccountCanpa!=null) {
                         if (AccountCanpa.moveToFirst()) {

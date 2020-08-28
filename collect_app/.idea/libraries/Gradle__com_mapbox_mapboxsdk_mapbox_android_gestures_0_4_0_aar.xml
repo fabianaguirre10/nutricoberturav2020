@@ -1,15 +1,17 @@
 <component name="libraryTable">
   <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-gestures:0.4.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/6ecbb4caaa121d991d65d6a5a9c7f142/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/15e0d2fb6053a24c09c7f7e3f91d7d21/jetified-mapbox-android-gestures-0.4.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/6ecbb4caaa121d991d65d6a5a9c7f142/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/6ecbb4caaa121d991d65d6a5a9c7f142/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/15e0d2fb6053a24c09c7f7e3f91d7d21/jetified-mapbox-android-gestures-0.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/15e0d2fb6053a24c09c7f7e3f91d7d21/jetified-mapbox-android-gestures-0.4.0/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-gestures/0.4.0/dbe3e3b3504181de448dcea5bf80e2f5c15efad1/mapbox-android-gestures-0.4.0-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-gestures/0.4.0/196c0672febc75d496502095f53253ecef1ba94a/mapbox-android-gestures-0.4.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-gestures/0.4.0/196c0672febc75d496502095f53253ecef1ba94a/mapbox-android-gestures-0.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

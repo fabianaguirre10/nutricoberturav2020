@@ -1,15 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.exifinterface:exifinterface:1.1.0-alpha01@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/1946f3ce7e06c820ae300e352e7b2d4b/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/644940a2452aff9ff5eb96d26cc9e75c/exifinterface-1.1.0-alpha01/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/1946f3ce7e06c820ae300e352e7b2d4b/res" />
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/1946f3ce7e06c820ae300e352e7b2d4b/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/644940a2452aff9ff5eb96d26cc9e75c/exifinterface-1.1.0-alpha01/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/644940a2452aff9ff5eb96d26cc9e75c/exifinterface-1.1.0-alpha01/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/androidx.exifinterface/exifinterface/1.1.0-alpha01/9041a81478250a1045798f2566d39dfd866a8e5a/exifinterface-1.1.0-alpha01-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.exifinterface/exifinterface/1.1.0-alpha01/9041a81478250a1045798f2566d39dfd866a8e5a/exifinterface-1.1.0-alpha01-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

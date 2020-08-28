@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: android.arch.work:work-firebase:1.0.0-alpha10@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/23d68d6436873fae75c0f66c57c049f0/res" />
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/23d68d6436873fae75c0f66c57c049f0/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0e6401c2fae9fa6563ce4e2961d1be9/jetified-work-firebase-1.0.0-alpha10/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0e6401c2fae9fa6563ce4e2961d1be9/jetified-work-firebase-1.0.0-alpha10/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/android.arch.work/work-firebase/1.0.0-alpha10/8f4d03c88a3dd3020a40683da1513a27ee17636a/work-firebase-1.0.0-alpha10-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/android.arch.work/work-firebase/1.0.0-alpha10/8f4d03c88a3dd3020a40683da1513a27ee17636a/work-firebase-1.0.0-alpha10-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

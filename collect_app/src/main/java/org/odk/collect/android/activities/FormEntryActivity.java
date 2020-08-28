@@ -2882,16 +2882,24 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                 mapa mapal= new mapa();
 
                 FormDef formDef = Collect.getInstance().getFormController().getFormDef();
+                 String End ="";
+                 String Start ="";
                 try {
 
                     TreeElement rootElement = formDef.getInstance().getRoot();
                     List<TreeElement> Treestart= rootElement.getChildrenWithName("start");
                     DateTimeData DataStart =(DateTimeData) Treestart.get(0).getValue();
                     Date start=new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(DataStart.getDisplayText());
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    Start = df.format(start.getTime());
+
 
                     List<TreeElement> Treeend= rootElement.getChildrenWithName("end");
                     DateTimeData Dataend =(DateTimeData) Treeend.get(0).getValue();
                     Date end=new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(Dataend.getDisplayText());
+                    SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
+                    End = df1.format(end.getTime());
+
                     long differenceInMillis=end.getTime()- start.getTime();
                     long Time= (differenceInMillis)/60000;
                     DecimalFormat twoDForm = new DecimalFormat("#.##");
@@ -2900,7 +2908,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
 
                 }
                 ConfiguracionSession objconfiguracionSession = new ConfiguracionSession();
-                String[] myTaskParams = { objconfiguracionSession.getCnf_imei(),objconfiguracionSession.getCnf_CampaniaNombre(),objFormularios.getE_code(),uri,"Finalizado",taskTime.toString()};
+                String[] myTaskParams = { objconfiguracionSession.getCnf_imei(),objconfiguracionSession.getCnf_CampaniaNombre(),objFormularios.getE_code(),uri,"Finalizado",taskTime.toString(),Start,End};
                 updatestatus fetchJsonTask = new updatestatus();
                 fetchJsonTask.execute(myTaskParams);
 
@@ -3001,7 +3009,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                         String where="";
                         String opcion = "";
                         String[] args = new String[]{};
-                        where = "where 1=1 and idproductopromo =" +bp.get_id() ;
+                        where = "where 1=1 and idproductopromo =" +bp.getE_codproducto() ;
                         usdbh = usdbh.open();
                         Cursor cursor = usdbh.listarProductoPromo(args, opcion, where);
                         usdbh.close();

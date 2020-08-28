@@ -1,11 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.chanmratekoko:myanmar-calendar:1.0.6.RC3@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/com.github.chanmratekoko/myanmar-calendar/1.0.6.RC3/ad2fc4e77e58b199832bca753f7265a93d9c47b4/myanmar-calendar-1.0.6.RC3.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chanmratekoko/myanmar-calendar/1.0.6.RC3/ad2fc4e77e58b199832bca753f7265a93d9c47b4/myanmar-calendar-1.0.6.RC3.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chanmratekoko/myanmar-calendar/1.0.6.RC3/9360c57b716183b43812d8305e30e64492845cac/myanmar-calendar-1.0.6.RC3-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/com.github.chanmratekoko/myanmar-calendar/1.0.6.RC3/4122fbcde8ccf0318dc2210889a0e4f8db30ef77/myanmar-calendar-1.0.6.RC3-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chanmratekoko/myanmar-calendar/1.0.6.RC3/4122fbcde8ccf0318dc2210889a0e4f8db30ef77/myanmar-calendar-1.0.6.RC3-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

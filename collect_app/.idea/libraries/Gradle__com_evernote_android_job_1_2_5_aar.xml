@@ -1,12 +1,14 @@
 <component name="libraryTable">
   <library name="Gradle: com.evernote:android-job:1.2.5@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/d40968e438e4f9b0f9f6133db3e4d995/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/d40968e438e4f9b0f9f6133db3e4d995/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7b8374a2e567846fe9f41024aaa8bbfa/jetified-android-job-1.2.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7b8374a2e567846fe9f41024aaa8bbfa/jetified-android-job-1.2.5/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.evernote/android-job/1.2.5/2e12ab09f57828d023309f700a40da042d9b3474/android-job-1.2.5-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/com.evernote/android-job/1.2.5/50aec1077647d6b943ef62faccb476e14a59f30/android-job-1.2.5-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.evernote/android-job/1.2.5/50aec1077647d6b943ef62faccb476e14a59f30/android-job-1.2.5-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

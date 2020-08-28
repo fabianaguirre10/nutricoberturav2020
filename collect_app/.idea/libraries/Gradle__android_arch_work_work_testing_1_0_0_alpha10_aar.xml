@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: android.arch.work:work-testing:1.0.0-alpha10@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/51bd80020df55e850ecedc561c656f11/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/51bd80020df55e850ecedc561c656f11/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/be445a480ab480ccb3b5b1649c7bb962/jetified-work-testing-1.0.0-alpha10/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/be445a480ab480ccb3b5b1649c7bb962/jetified-work-testing-1.0.0-alpha10/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/android.arch.work/work-testing/1.0.0-alpha10/12dc396a6e50861c304c2be838653dcc348b551c/work-testing-1.0.0-alpha10-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/android.arch.work/work-testing/1.0.0-alpha10/12dc396a6e50861c304c2be838653dcc348b551c/work-testing-1.0.0-alpha10-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

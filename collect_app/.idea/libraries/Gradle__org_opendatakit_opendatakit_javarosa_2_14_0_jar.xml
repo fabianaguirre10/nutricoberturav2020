@@ -1,11 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: org.opendatakit:opendatakit-javarosa:2.14.0@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/org.opendatakit/opendatakit-javarosa/2.14.0/25ccb6df647173764a27e94838c2b6eeb7637abf/opendatakit-javarosa-2.14.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opendatakit/opendatakit-javarosa/2.14.0/25ccb6df647173764a27e94838c2b6eeb7637abf/opendatakit-javarosa-2.14.0.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opendatakit/opendatakit-javarosa/2.14.0/4cbba0769b93249153dd4ae8c5f1b44870d918a6/opendatakit-javarosa-2.14.0-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/org.opendatakit/opendatakit-javarosa/2.14.0/bc9fdeee68dcf22705035894408c27b9090e89e0/opendatakit-javarosa-2.14.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opendatakit/opendatakit-javarosa/2.14.0/bc9fdeee68dcf22705035894408c27b9090e89e0/opendatakit-javarosa-2.14.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

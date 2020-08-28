@@ -153,6 +153,7 @@ public class BaseDatosEngine {
                     EstructuraBD.ColumnasConfiguracion.Id_campania + " text," +
                     EstructuraBD.ColumnasConfiguracion.FormaBusqueda + " text," +
                     EstructuraBD.ColumnasConfiguracion.Estado + " text," +
+                    EstructuraBD.ColumnasConfiguracion.FechaCarga + " text," +
                     EstructuraBD.ColumnasConfiguracion.Formularios + " text" +
                     ")";
             db.execSQL(query);
@@ -871,7 +872,7 @@ public class BaseDatosEngine {
     public boolean ActualizarTablaStockpromociones(int cantidad,int idproducto) {
         int idUsuario;
         try {
-            db.execSQL("UPDATE "+ Tablas.Producto +" SET stock=stock- "+cantidad+" WHERE _id="+idproducto);            //CerrarBase(db);
+            db.execSQL("UPDATE "+ Tablas.Producto +" SET stock=stock- "+cantidad+" WHERE codigosecundario="+idproducto);            //CerrarBase(db);
             //listar();
             return true;
         } catch (Exception ex) {

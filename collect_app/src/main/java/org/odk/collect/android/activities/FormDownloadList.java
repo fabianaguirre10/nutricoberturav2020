@@ -311,8 +311,7 @@ public class FormDownloadList extends FormListActivity implements FormListDownlo
             }
             createProgressDialog();
 
-            if (downloadFormListTask != null
-                    && downloadFormListTask.getStatus() != AsyncTask.Status.FINISHED) {
+            if (downloadFormListTask != null && downloadFormListTask.getStatus() != AsyncTask.Status.FINISHED) {
                 return; // we are already doing the download!!!
             } else if (downloadFormListTask != null) {
                 downloadFormListTask.setDownloaderListener(null);

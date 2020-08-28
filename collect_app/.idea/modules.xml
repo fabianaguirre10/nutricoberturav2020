@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/../collect-1.22.4.iml" filepath="$PROJECT_DIR$/../collect-1.22.4.iml" />
       <module fileurl="file://$PROJECT_DIR$/collect_app.iml" filepath="$PROJECT_DIR$/collect_app.iml" group="nutricoberturav2020/collect_app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/1754767990/nutricoberturav2020.iml" filepath="$PROJECT_DIR$/.idea/modules/1754767990/nutricoberturav2020.iml" group="nutricoberturav2020" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1342885363/nutricoberturav202056.iml" filepath="$PROJECT_DIR$/.idea/modules/-1342885363/nutricoberturav202056.iml" group="nutricoberturav202056" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nutricoberturav202056-collect_app.iml" filepath="$PROJECT_DIR$/.idea/modules/nutricoberturav202056-collect_app.iml" group="nutricoberturav202056/collect_app" />
     </modules>
   </component>
 </project>

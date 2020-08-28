@@ -1,15 +1,17 @@
 <component name="libraryTable">
   <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-sdk:7.3.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/e515c6ab593f918a36ea32bcb17476cd/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b896ab909e255d876f7de4164afb5f75/jetified-mapbox-android-sdk-7.3.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/e515c6ab593f918a36ea32bcb17476cd/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/transforms-2/files-2.1/e515c6ab593f918a36ea32bcb17476cd/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b896ab909e255d876f7de4164afb5f75/jetified-mapbox-android-sdk-7.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b896ab909e255d876f7de4164afb5f75/jetified-mapbox-android-sdk-7.3.0/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-sdk/7.3.0/eb5436437f42563d2c0ef6f7e9aba01d1650027e/mapbox-android-sdk-7.3.0-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-5.1.1-all/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-sdk/7.3.0/84a2726a400ecfb6e73d865411867670ce301545/mapbox-android-sdk-7.3.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-sdk/7.3.0/84a2726a400ecfb6e73d865411867670ce301545/mapbox-android-sdk-7.3.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
