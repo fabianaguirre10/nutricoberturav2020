@@ -98,10 +98,12 @@ public class principal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         txtnombrecampania = (TextView) findViewById(R.id.txnombrecampania);
         objseccion.setE_imei(obterImeid());

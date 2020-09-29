@@ -142,17 +142,17 @@ public class PropertyManager implements IPropertyManager {
                 scheme = SCHEME_MAC;
             }
         }
-
-        // if it is still null, use ANDROID_ID
-        if (deviceId == null) {
-            deviceId = Settings.Secure.getString(context.getContentResolver(), androidIdName);
-            scheme = androidIdName;
-        }
         if (deviceId == null) {
 
             deviceId = GetIMEID(context);
             scheme = androidIdName;
         }
+        // if it is still null, use ANDROID_ID
+        if (deviceId == null) {
+            deviceId = Settings.Secure.getString(context.getContentResolver(), androidIdName);
+            scheme = androidIdName;
+        }
+
         return new IdAndPrefix(deviceId, scheme);
     }
 

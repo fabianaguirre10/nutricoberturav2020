@@ -66,6 +66,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.odk.collect.android.R;
+import org.odk.collect.android.Tracking.JavaRestClient;
+import org.odk.collect.android.Tracking.RouteBranches;
+import org.odk.collect.android.Tracking.TrackingBussiness;
+import org.odk.collect.android.Tracking.User;
 import org.odk.collect.android.activities.viewmodels.FormDownloadListViewModel;
 import org.odk.collect.android.application.Collect;
 import org.odk.collect.android.dao.FormsDao;
@@ -95,6 +99,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -124,6 +129,7 @@ public class configuracion extends  AppCompatActivity implements
     final CuentaSession objcuentaSession = new CuentaSession();
     final ConfiguracionSession objconfiguracionSession = new ConfiguracionSession();
     String Estado = "";
+    TrackingBussiness _trackingBussiness=new TrackingBussiness();
 
 
 
@@ -163,7 +169,7 @@ public class configuracion extends  AppCompatActivity implements
      */
     private FusedLocationProviderClient mFusedLocationClient;
 
-
+    static  String imeiphone;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     protected void onCreate(Bundle savedInstanceState) {
@@ -233,6 +239,8 @@ public class configuracion extends  AppCompatActivity implements
         Cursor c = usdbh.ConfiguracionLista();
         ConfiguracionDB actualconf = new ConfiguracionDB();
         CargarListacuenta();
+        ValidToken();
+        imeiphone=obterImeid();
         if (c != null) {
             if (c.moveToFirst()) {
                 do {
@@ -342,7 +350,7 @@ public class configuracion extends  AppCompatActivity implements
                         usdbh.close();
 
 
-                        try {
+                       /* try {
                             mFusedLocationClient.removeLocationUpdates(getPendingIntent());
                             Log.i(TAG, "Starting location updates");
                             Utils.setRequestingLocationUpdates(v.getContext(), true);
@@ -350,7 +358,7 @@ public class configuracion extends  AppCompatActivity implements
                         } catch (SecurityException e) {
                             Utils.setRequestingLocationUpdates(v.getContext(), false);
                             e.printStackTrace();
-                        }
+                        }*/
 
                         if(!objcuentaSession.getCu_Formularios().equals("")){
                             downloadFormList();
@@ -805,6 +813,12 @@ public class configuracion extends  AppCompatActivity implements
             progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             // progress.setIndeterminate(true);
             progress.setCanceledOnTouchOutside(false);
+            List<RouteBranches> _route= new ArrayList<RouteBranches>() {
+            };
+            BaseDatosEngine _context = new BaseDatosEngine();
+            _context = _context.open();
+            String campaing= _context.GetCampaignSelect();
+            _context.close();
 
             progress.setProgress(0);
             progress.setMax(respJSON.length());
@@ -928,6 +942,8 @@ public class configuracion extends  AppCompatActivity implements
                                 objruta.setGeolatitude(Double.valueOf(LatitudeBranch));
 
                                 objenviarrutassuper.add(objruta);
+                                _route.add(new RouteBranches(code.toUpperCase(),name.toUpperCase(),mainStreet.toUpperCase(),ESTADOAGGREGATE,rutaaggregate,imeiphone,objcuentaSession.getCu_CampaniaNombre(),Double.parseDouble(LenghtBranch),Double.parseDouble(LatitudeBranch),Double.parseDouble(TiempoEcuesta == "null" ? "0" : TiempoEcuesta),Fecchaultimavisita == "null" ? null :Fecchaultimavisita,startDate == "null" ? null :startDate ));
+
 
                                 usdbh.insertardatos(Objdatos);
                                 usdbh.close();
@@ -960,7 +976,7 @@ public class configuracion extends  AppCompatActivity implements
                     progress.dismiss();
                     if (totalProgressTime > 0) {
                         if (totalProgressTime == jumpTime) {
-                            taskenvioruta tee = new taskenvioruta();
+                            /*taskenvioruta tee = new taskenvioruta();
 
 
                             String[] myTaskParams = new String[0];
@@ -981,7 +997,10 @@ public class configuracion extends  AppCompatActivity implements
                             } else {
                                 taskenvioruta fetchJsonTask = new taskenvioruta();
                                 fetchJsonTask.execute(myTaskParams);
-                            }
+                            }*/
+                            JavaRestClient tarea = new JavaRestClient();
+                            _trackingBussiness.SetLocationMerch();
+                            tarea.SetRouteBranches(_route);
 
                             CargarProductos cargarProductos = new CargarProductos(context);
                             cargarProductos.execute();
@@ -1852,6 +1871,31 @@ public class configuracion extends  AppCompatActivity implements
 
             setResult(RESULT_OK, intent);
         }
+    //tracking david
+    private void ValidToken(){
+        JavaRestClient tarea = new JavaRestClient();
+        BaseDatosEngine _context = new BaseDatosEngine();
+        _context = _context.open();
+        String date= _context.GetDateTokenSelect();
+        _context.close();
+        try {
+            Date datetoken=new SimpleDateFormat("dd-MM-yyyy").parse(date);
+            Date dateNow = new Date();
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(datetoken); // Configuramos la fecha que se recibe
+            calendar.add(Calendar.DAY_OF_YEAR, 5);  // numero de días a añadir, o restar en caso de días<0
+            Date ExpToke=calendar.getTime();
+            if(dateNow.compareTo(ExpToke)>0 ){
+                User _user =new User();
+                tarea.getToken2(_user);
+            }
+
+        }catch (Exception e){
+            User _user =new User();
+            tarea.getToken2(_user);
+
+        }
+    }
 
 }
 

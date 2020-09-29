@@ -20,9 +20,12 @@ import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.BatteryManager;
+
 import androidx.annotation.NonNull;
 
 import com.evernote.android.job.Job;
@@ -30,17 +33,26 @@ import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 
 import org.odk.collect.android.R;
+import org.odk.collect.android.Tracking.GPSTracker;
+import org.odk.collect.android.Tracking.JavaRestClient;
+import org.odk.collect.android.Tracking.Tracking;
+import org.odk.collect.android.Tracking.User;
 import org.odk.collect.android.activities.FormDownloadList;
 import org.odk.collect.android.activities.NotificationActivity;
 import org.odk.collect.android.application.Collect;
 import org.odk.collect.android.dao.FormsDao;
+import org.odk.collect.android.database.BaseDatosEngine.BaseDatosEngine;
 import org.odk.collect.android.logic.FormDetails;
+import org.odk.collect.android.logic.PropertyManager;
 import org.odk.collect.android.preferences.GeneralSharedPreferences;
 import org.odk.collect.android.utilities.DownloadFormListUtils;
 import org.odk.collect.android.utilities.FormDownloader;
 import org.odk.collect.android.utilities.NotificationUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,7 +82,29 @@ public class ServerPollingJob extends Job {
         if (!isDeviceOnline()) {
             return Result.FAILURE;
         }
+        if (Collect.getInstance().getString(R.string.never_value_tracking).equals("true")) {
+            try{
+                JavaRestClient tarea = new JavaRestClient();
+                ValidToken();
+                String deviceId = new PropertyManager(Collect.getInstance().getApplicationContext())
+                        .getSingularProperty(PropertyManager.withUri(PropertyManager.PROPMGR_DEVICE_ID));
+                String imei = deviceId;
+                imei=imei.replace("imei:", "");
+                imei=imei.replace("android_id:", "");
+                GPSTracker _track =new  GPSTracker(Collect.getInstance().getApplicationContext());
 
+                BaseDatosEngine _context = new BaseDatosEngine();
+                _context = _context.open();
+                String campaing= _context.GetCampaignSelect();
+                _context.close();
+                Tracking _traTracking=new Tracking(_track.getLongitude(),_track.getLatitude(),_track.getAccurency(),campaing,campaing,imei,LeveLBatery());
+                tarea.SetTracking(_traTracking);
+                // informAboutTracking();}
+            }catch (Exception e){
+
+
+            }
+        }
         DownloadFormListUtils downloadFormListTask = new DownloadFormListUtils();
         HashMap<String, FormDetails> formList = downloadFormListTask.downloadFormList(true);
 
@@ -193,5 +227,41 @@ public class ServerPollingJob extends Job {
             }
         }
         return true;
+    }
+    private void ValidToken(){
+        JavaRestClient tarea = new JavaRestClient();
+        BaseDatosEngine _context = new BaseDatosEngine();
+        _context = _context.open();
+        String date= _context.GetDateTokenSelect();
+        _context.close();
+        try {
+            Date datetoken=new SimpleDateFormat("dd-MM-yyyy").parse(date);
+            Date dateNow = new Date();
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(datetoken); // Configuramos la fecha que se recibe
+            calendar.add(Calendar.DAY_OF_YEAR, 5);  // numero de días a añadir, o restar en caso de días<0
+            Date ExpToke=calendar.getTime();
+            if(dateNow.compareTo(ExpToke)>0 ){
+                User _user =new User();
+                tarea.getToken2(_user);
+            }
+
+        }catch (Exception e){
+            User _user =new User();
+            tarea.getToken2(_user);
+
+        }
+    }
+    private int LeveLBatery()
+    {
+        IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = Collect.getInstance().getApplicationContext().registerReceiver(null, ifilter);
+
+        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+
+        int batteryPct = level * 100 / scale;
+        return  batteryPct;
+
     }
 }

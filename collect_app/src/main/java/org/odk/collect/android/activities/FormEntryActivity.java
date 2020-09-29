@@ -66,6 +66,7 @@ import org.javarosa.core.model.FormDef;
 import org.javarosa.core.model.FormIndex;
 import org.javarosa.core.model.data.DateTimeData;
 import org.javarosa.core.model.data.IAnswerData;
+import org.javarosa.core.model.data.StringData;
 import org.javarosa.core.model.instance.TreeElement;
 import org.javarosa.form.api.FormEntryCaption;
 import org.javarosa.form.api.FormEntryController;
@@ -75,6 +76,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.odk.collect.android.R;
+import org.odk.collect.android.Tracking.GPSTracker;
+import org.odk.collect.android.Tracking.JavaRestClient;
+import org.odk.collect.android.Tracking.SaveNewBranchTracking;
+import org.odk.collect.android.Tracking.SaveStatusBranchTracking;
+import org.odk.collect.android.Tracking.TrackingBussiness;
 import org.odk.collect.android.adapters.IconMenuListAdapter;
 import org.odk.collect.android.adapters.model.IconMenuItem;
 import org.odk.collect.android.application.Collect;
@@ -121,6 +127,7 @@ import org.odk.collect.android.logic.FormController;
 import org.odk.collect.android.logic.FormController.FailedConstraint;
 import org.odk.collect.android.logic.FormInfo;
 import org.odk.collect.android.logic.ImmutableDisplayableQuestion;
+import org.odk.collect.android.logic.PropertyManager;
 import org.odk.collect.android.preferences.AdminKeys;
 import org.odk.collect.android.preferences.AdminSharedPreferences;
 import org.odk.collect.android.preferences.GeneralKeys;
@@ -2880,8 +2887,10 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                 cambiarestado(codigobranch,uri);
                 Activos activos= new Activos();
                 mapa mapal= new mapa();
-
                 FormDef formDef = Collect.getInstance().getFormController().getFormDef();
+                UpdatetrackingBranch(codigobranch,uri,formDef);
+
+               /* FormDef formDef = Collect.getInstance().getFormController().getFormDef();
                  String End ="";
                  String Start ="";
                 try {
@@ -2910,7 +2919,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
                 ConfiguracionSession objconfiguracionSession = new ConfiguracionSession();
                 String[] myTaskParams = { objconfiguracionSession.getCnf_imei(),objconfiguracionSession.getCnf_CampaniaNombre(),objFormularios.getE_code(),uri,"Finalizado",taskTime.toString(),Start,End};
                 updatestatus fetchJsonTask = new updatestatus();
-                fetchJsonTask.execute(myTaskParams);
+                fetchJsonTask.execute(myTaskParams);*/
 
 
                 String formId = getFormController().getFormDef().getMainInstance().getRoot().getAttributeValue("", "id");
@@ -3142,6 +3151,135 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
 
                 break;
         }
+    }
+    //david Tracking/////////
+    private boolean UpdatetrackingBranch(String codigo, String uri ,FormDef formDef){
+        BaseDatosEngine usdbh = new BaseDatosEngine();
+        usdbh = usdbh.open();
+        BranchSession objB = new BranchSession();
+        //comprobar creacion del fromulario
+        TrackingBussiness _trackingBussiness=new TrackingBussiness();
+        _trackingBussiness.SetLocationMerch();
+        try {
+            //David Tracking
+            Double taskTime=-1.0;
+            JavaRestClient Tarea = new JavaRestClient();
+            String deviceId = new PropertyManager(Collect.getInstance().getApplicationContext())
+                    .getSingularProperty(PropertyManager.withUri(PropertyManager.PROPMGR_DEVICE_ID));
+            CodigoSession codse = new CodigoSession();
+            String Estado= objB.getE_EstadoFormulario().toString().toUpperCase();
+            String imei = deviceId;
+            imei=imei.replace("imei:", "");
+            imei=imei.replace("android_id:", "");
+            BaseDatosEngine _context = new BaseDatosEngine();
+            _context = _context.open();
+            String campaing= _context.GetCampaignSelect();
+            _context.close();
+            try {
+
+
+                TreeElement rootElement = formDef.getInstance().getRoot();
+                GPSTracker _track = new GPSTracker(Collect.getInstance().getApplicationContext());
+                List<TreeElement> existe_nuevo = rootElement.getChildrenWithName("existe_nuevo");
+                StringData Existencia = (StringData) existe_nuevo.get(0).getValue();
+
+
+                List<TreeElement> Treestart = rootElement.getChildrenWithName("start");
+                DateTimeData DataStart = (DateTimeData) Treestart.get(0).getValue();
+                Date start = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(DataStart.getDisplayText());
+
+                List<TreeElement> Treeend = rootElement.getChildrenWithName("end");
+                DateTimeData Dataend = (DateTimeData) Treeend.get(0).getValue();
+                Date end = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(Dataend.getDisplayText());
+                long differenceInMillis = end.getTime() - start.getTime();
+                long Time = (differenceInMillis) / 60000;
+                DecimalFormat twoDForm = new DecimalFormat("#.##");
+                taskTime = Double.valueOf(twoDForm.format(Time));
+                if (!Existencia.getDisplayText().toUpperCase().equals("NUEVO")) {
+                    TreeElement FormularioODK;
+                    FormularioODK = rootElement;
+                    TreeElement local = BusquedaArbol(FormularioODK, "ruta");
+                    List<TreeElement> RouteCod;
+
+
+                    RouteCod = local.getChildrenWithName("cod");
+                    StringData Codigos = (StringData) RouteCod.get(0).getValue();
+                    SaveStatusBranchTracking _Reply = new SaveStatusBranchTracking(
+                            imei, campaing, Codigos.getDisplayText(), uri, Estado, taskTime, DataStart.getDisplayText(), Dataend.getDisplayText()
+                    );
+
+                    Tarea.SaveStatusBranchTracking(_Reply);
+                } else {
+                    SaveNewBranchTracking _ReplyNew;
+                    try {
+                        TreeElement FormularioODK;
+                        FormularioODK = rootElement;
+                        TreeElement local = BusquedaArbol(FormularioODK, "ruta");
+
+                        List<TreeElement> nombrelocal;
+                        List<TreeElement> direccion;
+                        nombrelocal = local.getChildrenWithName("local_nombre");
+                        direccion = local.getChildrenWithName("direccion_p");
+                        List<TreeElement> RouteCod;
+
+                        RouteCod = local.getChildrenWithName("cod");
+                        StringData Codigos = (StringData) RouteCod.get(0).getValue();
+                        StringData NameBranch = (StringData) nombrelocal.get(0).getValue();
+                        StringData StreetBranch = (StringData) direccion.get(0).getValue();
+
+                        _ReplyNew = new SaveNewBranchTracking(
+                                Codigos.getDisplayText(), NameBranch.getDisplayText(), StreetBranch.getDisplayText(), "Nuevo", objB.getE_rutaaggregate(), imei, campaing, _track.getLongitude(), _track.getLatitude(), taskTime, DataStart.getDisplayText(), Dataend.getDisplayText(), uri
+                        );
+
+
+                    } catch (Exception E) {
+                        TreeElement FormularioODK;
+                        FormularioODK = rootElement;
+                        TreeElement local = BusquedaArbol(FormularioODK, "ruta");
+                        List<TreeElement> RouteCod;
+
+
+                        RouteCod = local.getChildrenWithName("cod");
+                        StringData Codigos = (StringData) RouteCod.get(0).getValue();
+                        _ReplyNew = new SaveNewBranchTracking(
+                                Codigos.getDisplayText(), "Local Nuevo", "SN", "Nuevo", objB.getE_rutaaggregate(), imei, campaing, _track.getLongitude(), _track.getLatitude(), taskTime, DataStart.getDisplayText(), Dataend.getDisplayText(), uri
+                        );
+                    }
+
+                    Tarea.SetNewBranch(_ReplyNew);
+                }
+
+
+
+
+
+            }catch (Exception E) {
+
+            }
+
+        }catch (Exception E)
+        {
+        }
+
+
+
+
+        return  true;
+    }
+    private TreeElement BusquedaArbol(TreeElement parent, String name) {
+        int len = parent.getNumChildren();
+        for (int i = 0; i < len; ++i) {
+            TreeElement e = parent.getChildAt(i);
+            if (name.equals(e.getName())) {
+                return e;
+            } else if (e.getNumChildren() != 0) {
+                TreeElement v = BusquedaArbol(e, name);
+                if (v != null) {
+                    return v;
+                }
+            }
+        }
+        return null;
     }
 
     @Override

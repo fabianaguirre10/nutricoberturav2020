@@ -45,7 +45,29 @@ public class EstructuraBD {
             return "CP-" + UUID.randomUUID().toString();
         }
     }
+    /// david
+    interface Token {
+        String ID = "id";
+        String token = "token";
+        String fecha = "fecha";
+    }
+    //david
+    public static class CabecerasToken implements Token {
+        public static String generarIdCabeceraPedido() {
+            return "CP-" + UUID.randomUUID().toString();
+        }
+    }
+    interface SrCampaign{
+        String ID = "id";
+        String Account = "Account";
+        String Campaign = "Campaign";
 
+    }
+    public static class CabecerasSrCampaign implements SrCampaign {
+        public static String generarIdCabeceraPedido() {
+            return "CP-" + UUID.randomUUID().toString();
+        }
+    }
     interface ColumnasCodigos{
         String ID = "id";
         String idAccount = "idAccount";

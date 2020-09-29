@@ -105,6 +105,7 @@
         <activity
             android:name=".activities.principal"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/BaseLightAppTheme.Collect">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

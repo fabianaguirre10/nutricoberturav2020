@@ -28,7 +28,7 @@ import timber.log.Timber;
 public class BaseDatosEngine {
     private static final String NOMBRE_BASE_DATOS = "EngineDatos.db";
 
-    private static final int VERSION_ACTUAL = 45;
+    private static final int VERSION_ACTUAL = 46;
     private DatabaseHelperEngine dbHelper;
     private SQLiteDatabase db;
     interface Tablas {
@@ -44,6 +44,8 @@ public class BaseDatosEngine {
         String Producto = "Producto";
         String Operacion = "Operacion";
         String Promo="Promo";
+        String Tabletoken = "Token";
+        String TableStoreCampaign = "StoreCampaign";
     }
 
     private static class DatabaseHelperEngine extends SQLiteOpenHelper {
@@ -194,6 +196,18 @@ public class BaseDatosEngine {
                     EstructuraBD.ColumnasPromo.idproductopromo + " int" +
                     ")";
             db.execSQL(query);
+            //// Autentificación
+            query = "create table Token(_ID integer primary key ," +
+                    EstructuraBD.Token.token + " text," +
+                    EstructuraBD.Token.fecha + " text" +
+                    ")";
+            db.execSQL(query);
+            //// Seleccion Base
+            query = "create table StoreCampaign(_ID integer primary key ," +
+                    EstructuraBD.SrCampaign.Account + " text," +
+                    EstructuraBD.SrCampaign.Campaign + " text" +
+                    ")";
+            db.execSQL(query);
 
 
 
@@ -214,9 +228,10 @@ public class BaseDatosEngine {
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Producto);
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Operacion);
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Promo);
-            if(newVersion==45){
+            db.execSQL("DROP TABLE IF EXISTS " + Tablas.Tabletoken);
+            db.execSQL("DROP TABLE IF EXISTS " + Tablas.TableStoreCampaign);
                 onCreate(db);
-            }
+
         }
     }
 
@@ -1093,7 +1108,119 @@ public class BaseDatosEngine {
         }
         return c;
     }
+    //david Tracking
+    public boolean InsertToken(ContentValues values) {
 
+        int idUsuario;
+        try {
+            int i=  (int) db.delete(Tablas.Tabletoken, null, null);
+            String query = "insert into " + Tablas.Tabletoken + " values (" +
+                    values.getAsString("ID") +
+                    ",'" + values.getAsString(EstructuraBD.Token.token) + "',"
+                    + "'" + values.getAsString(EstructuraBD.Token.fecha) + "')";
+            db.execSQL(query);
+            //idUsuario = (int) db.insert(Tablas.CampaniaCuentas, null, values);
+            //CerrarBase(db);
+            //listar();
+            return true;
+        } catch (Exception ex) {
+            CerrarBase(db);
+            return false;
+        }
+    }
+    public String GetTokenSelect() {
+
+        Cursor c = null;
+        String[] args = new String[]{""};
+        String  Token = "";
+        try {
+            String query = "";
+            query = "select  token from " + Tablas.Tabletoken;
+            //db.execSQL(query);
+            c = db.rawQuery(query, null);
+
+            //Nos aseguramos de que existe al menos un registro
+            List<Branch> resultado = null;
+            if (c.moveToFirst()) {
+                //Recorremos el cursor hasta que no haya más registros
+                do {
+                    Token = c.getString(0);
+                } while (c.moveToNext());
+            }
+        } catch (Exception ex) {
+            String a = ex.getMessage();
+        }
+        return Token;
+    }
+    public String GetCampaignSelect() {
+
+
+
+        Cursor c = null;
+        String[] args = new String[]{""};
+        String  campaign = "";
+        try {
+            String query = "";
+            query = "select  Campaign from " + Tablas.TableStoreCampaign;
+            //db.execSQL(query);
+            c = db.rawQuery(query, null);
+
+            //Nos aseguramos de que existe al menos un registro
+            List<Branch> resultado = null;
+            if (c.moveToFirst()) {
+                //Recorremos el cursor hasta que no haya más registros
+                do {
+                    campaign = c.getString(0);
+                } while (c.moveToNext());
+            }
+        } catch (Exception ex) {
+            String a = ex.getMessage();
+        }
+        return campaign;
+    }
+    public String GetDateTokenSelect() {
+
+        Cursor c = null;
+        String[] args = new String[]{""};
+        String  Token = "";
+        try {
+            String query = "";
+            query = "select  fecha from " + Tablas.Tabletoken;
+            //db.execSQL(query);
+            c = db.rawQuery(query, null);
+
+            //Nos aseguramos de que existe al menos un registro
+            List<Branch> resultado = null;
+            if (c.moveToFirst()) {
+                //Recorremos el cursor hasta que no haya más registros
+                do {
+                    Token = c.getString(0);
+                } while (c.moveToNext());
+            }
+        } catch (Exception ex) {
+            String a = ex.getMessage();
+        }
+        return Token;
+    }
+    public boolean InsertSeccionCampaign(ContentValues values) {
+
+        int idUsuario;
+        try {
+            int i=  (int) db.delete(Tablas.TableStoreCampaign, null, null);
+            String query = "insert into " + Tablas.TableStoreCampaign + " values (" +
+                    values.getAsString("ID") +
+                    ",'" + values.getAsString(EstructuraBD.SrCampaign.Account) + "',"
+                    + "'" + values.getAsString(EstructuraBD.SrCampaign.Campaign) + "')";
+            db.execSQL(query);
+            //idUsuario = (int) db.insert(Tablas.CampaniaCuentas, null, values);
+            //CerrarBase(db);
+            //listar();
+            return true;
+        } catch (Exception ex) {
+            CerrarBase(db);
+            return false;
+        }
+    }
 
 }
 
