@@ -71,8 +71,8 @@ android {
 
     defaultConfig {
         applicationId('org.odk.collect.android')
-        minSdkVersion(16)
-        targetSdkVersion(28)
+        minSdkVersion(21)
+        targetSdkVersion(26)
         versionCode LEGACY_BUILD_NUMBER_OFFSET + getMasterCommitCount()
         versionName getVersionName()
         testInstrumentationRunner('androidx.test.runner.AndroidJUnitRunner')
@@ -116,7 +116,7 @@ android {
             buildConfigField 'String', "MAPBOX_ACCESS_TOKEN", '"' + mapboxToken + '"'
         }
         debug {
-            debuggable(true)
+            debuggable(false)
             testCoverageEnabled(true)
             resValue("bool", "FIREBASE_CRASHLYTICS_ENABLED", "false")
             resValue("string", "GOOGLE_MAPS_API_KEY", googleMapsApiKey)

@@ -28,7 +28,7 @@ import timber.log.Timber;
 public class BaseDatosEngine {
     private static final String NOMBRE_BASE_DATOS = "EngineDatos.db";
 
-    private static final int VERSION_ACTUAL = 44;
+    private static final int VERSION_ACTUAL = 45;
     private DatabaseHelperEngine dbHelper;
     private SQLiteDatabase db;
     interface Tablas {
@@ -214,7 +214,7 @@ public class BaseDatosEngine {
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Producto);
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Operacion);
             db.execSQL("DROP TABLE IF EXISTS " + Tablas.Promo);
-            if(newVersion==44){
+            if(newVersion==45){
                 onCreate(db);
             }
         }
@@ -287,7 +287,8 @@ public class BaseDatosEngine {
                     + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.Id_campania) + "',"
                     + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.FormaBusqueda) + "',"
                     + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.FechaCarga) + "',"
-                    + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.Estado) + "')";
+                    + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.Estado) + "',"
+                    + "'" + values.getAsString(EstructuraBD.ColumnasConfiguracion.Formularios) + "')";
             db.execSQL(query);
             //idUsuario = (int) db.insert(Tablas.CampaniaCuentas, null, values);
             //CerrarBase(db);

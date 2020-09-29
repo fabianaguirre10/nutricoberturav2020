@@ -107,8 +107,8 @@ public class taskenvioruta extends AsyncTask<String, Void, Void> {
             jsonitemruta.put("Geolatitude", x.getGeolatitude());
 
             jsonitemruta.put("timeLastTask", x.get_timetaks());
-            jsonitemruta.put("dateexec", x.get_dateexec());
-            jsonitemruta.put("dateexecini", x.getStartDate());
+            jsonitemruta.put("dateexec", x.get_dateexec()=="null"?null:x.get_dateexec());
+            jsonitemruta.put("dateexecini", x.getStartDate()=="null"?null:x.getStartDate());
 
             jsonArrayruta.put(jsonitemruta);
         }
