@@ -550,7 +550,7 @@ public class configuracion extends  AppCompatActivity implements
         }
      /* String  deviceId = new PropertyManager(Collect.getInstance().getApplicationContext())
                 .getSingularProperty(PropertyManager.withUri(PropertyManager.PROPMGR_DEVICE_ID));*/
-        return "8959301000603495446";//myIMEI;
+        return myIMEI;
 
     }
 

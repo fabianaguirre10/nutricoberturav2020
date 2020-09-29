@@ -91,6 +91,7 @@ public class PropertyManager implements IPropertyManager {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     public PropertyManager(Context context) {
         Timber.i("calling constructor");
 
